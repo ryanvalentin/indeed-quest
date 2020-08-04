@@ -23,4 +23,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/DeskRoomSouth/DeskRoomSouthScene.unity
     guid: aefe7d7ede548b84ea563ef2a91b2b07
+  - enabled: 1
+    path: Assets/Scenes/GameSceneContainer.unity
+    guid: a1d8041e3cece6d47952a1b6e43337ec
   m_configObjects: {}
