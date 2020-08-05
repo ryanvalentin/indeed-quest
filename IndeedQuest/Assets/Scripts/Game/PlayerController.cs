@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class playerController : MonoBehaviour
+public class PlayerController : MonoBehaviour
 {
 
     public float speed;
@@ -21,6 +21,11 @@ public class playerController : MonoBehaviour
 
     void walk() 
     {
+        // Locks player movement when we change scenes because the controller
+        // will manually move the player into a position.
+        if (GameController.Instance.IsTransitioning)
+            return;
+
         float moveHor = Input.GetAxis("Horizontal");
         float moveVer = Input.GetAxis("Vertical");
         Vector3 playerVel = new Vector3(moveHor * speed, 0, moveVer * speed);

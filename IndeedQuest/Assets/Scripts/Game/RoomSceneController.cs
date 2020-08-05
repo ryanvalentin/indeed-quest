@@ -44,8 +44,6 @@ public class RoomSceneController : MonoBehaviour
             }
         }
 
-        Debug.Log($"Portal position: {pos} from {portalId} in scene {gameObject.scene.name}");
-
         return pos;
     }
 }
