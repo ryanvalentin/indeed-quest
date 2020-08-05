@@ -9,8 +9,11 @@
 ## Definitions
 
 **Room** - This is a single Unity scene where the player can move about, e.g. the "Lunch Area" is one room.
+
 **Portal** - These are links between rooms and describe to the game controller which scene to load next, and where to place the player. There's a portal on either end of the Room and they're linked by ID.
+
 **Interactable** - This is a simple object that can be inspected. You can optionally pick up that object if allowed.
+
 **NPC** - This is an extension of an interactable which allows for things like dialogue, quests, etc.
 
 ## Game Structure
