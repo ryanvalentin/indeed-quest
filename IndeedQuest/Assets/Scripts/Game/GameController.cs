@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 using UnityEngine.Audio;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -20,6 +21,8 @@ public class GameController : MonoBehaviour
     public SceneReference MainMenuScene;
 
     public CanvasGroup FadeCanvas;
+
+    public DialoguePopup Dialogue;
 
     public AudioMixer Mixer;
 
@@ -79,6 +82,11 @@ public class GameController : MonoBehaviour
         Application.Quit();
     }
 
+    public void OnPopupTrigger(string title, string description)
+    {
+        Dialogue.Show(title, description);
+    }
+
     /// <summary>
     /// Method to manage NPCs in the game, globally.
     /// </summary>
@@ -110,8 +118,9 @@ public class GameController : MonoBehaviour
         // Load our additional scenes.
         LoadInitialScenes();
 
-        // Make sure Pause Menu is hidden because we'll show instructions first.
+        // Make sure dialogues hidden because we'll show instructions first.
         PauseMenu.SetActive(false);
+        Dialogue.Hide();
 
         // Now reveal the scene.
         StartCoroutine(RunFadeScreenRoutine(FadeSeconds, 0f, FadeSeconds));

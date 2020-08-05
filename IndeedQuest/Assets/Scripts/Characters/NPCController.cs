@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NPCController : MonoBehaviour
+public class NPCController : InspectDialogue
 {
     private Renderer[] _renderers;
 
@@ -34,16 +34,26 @@ public class NPCController : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         
     }
 
-    private void OnTriggerEnter(Collider other)
+#if UNITY_EDITOR
+    private void OnValidate()
     {
-        if (!HasQuest)
-            return;
+        if (Profile)
+            PopupTitle = Profile.JobTitle;
+    }
+#endif
 
-        Debug.Log($"Interacted with {name} - {Profile.JobTitle}");
+    protected override void OnTriggerEnter(Collider other)
+    {
+        base.OnTriggerEnter(other);
+    }
+
+    protected override void OnTriggerExit(Collider other)
+    {
+        base.OnTriggerExit(other);
     }
 }
