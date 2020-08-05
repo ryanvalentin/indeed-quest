@@ -18,6 +18,8 @@ public class GameController : MonoBehaviour
 
     private float _timeSinceStart = 0f;
 
+    private int _currentScore = 0;
+
     public static GameController Instance;
 
     public SceneReference MainMenuScene;
@@ -65,6 +67,11 @@ public class GameController : MonoBehaviour
     {
         LastPortalId = portal.Id;
         StartCoroutine(RunSwitchRoomRoutine(portal.Scene));
+    }
+
+    public void OnContributeToScore(int score)
+    {
+        _currentScore += score;
     }
 
     public void ResumeGame()
@@ -125,8 +132,13 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        UpdateGameClock();
         UpdateQuests();
+    }
+
+    private void LateUpdate()
+    {
+        UpdateScore();
+        UpdateGameClock();
     }
 
     /// <summary>
@@ -138,6 +150,11 @@ public class GameController : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         // TODO: Loop through all the NPCs and set their quest data.
+    }
+
+    private void UpdateScore()
+    {
+        ScoreText.text = $"{_currentScore:N0} people we've helped get jobs";
     }
 
     private void UpdateGameClock()
