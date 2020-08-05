@@ -30,7 +30,7 @@ public class GameController : MonoBehaviour
 
     public SceneReference[] InitialScenes;
 
-    public PlayerController Player;
+    public GameObject Player;
 
     public Text TimeText;
 
