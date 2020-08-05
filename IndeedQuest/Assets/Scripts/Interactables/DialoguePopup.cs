@@ -42,11 +42,15 @@ public class DialoguePopup : MonoBehaviour
         DescriptionText.text = description;
 
         gameObject.SetActive(true);
+
+        GameController.Instance.PauseGame();
     }
 
     public void Hide()
     {
         gameObject.SetActive(false);
+
+        GameController.Instance.ResumeGame();
     }
 
     public void ClickPrimary()
