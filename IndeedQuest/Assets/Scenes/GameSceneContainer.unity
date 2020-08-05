@@ -2778,6 +2778,14 @@ MonoBehaviour:
   InitialScenes:
   - sceneAsset: {fileID: 102900000, guid: 748456e08f077d747b3ef95d2c0a2c51, type: 3}
     scenePath: Assets/Scenes/ElevatorRoomScene.unity
+  - sceneAsset: {fileID: 102900000, guid: 8d37b026eb2636041aeafcbc54480659, type: 3}
+    scenePath: Assets/Scenes/CommonRoomScene.unity
+  - sceneAsset: {fileID: 102900000, guid: 9f0daec46d2f4264faa4c0ced28b0d0d, type: 3}
+    scenePath: Assets/Scenes/DeskRoomNorthScene.unity
+  - sceneAsset: {fileID: 102900000, guid: aefe7d7ede548b84ea563ef2a91b2b07, type: 3}
+    scenePath: Assets/Scenes/DeskRoomSouthScene.unity
+  - sceneAsset: {fileID: 102900000, guid: 075207cc9e8d75947b25ee463b6b8691, type: 3}
+    scenePath: Assets/Scenes/LunchRoomScene.unity
   Player: {fileID: 3839080659679109862}
   TimeText: {fileID: 1509635897}
   ScoreText: {fileID: 515621933}

@@ -14,6 +14,8 @@ public class GameController : MonoBehaviour
 
     private Dictionary<string, List<NPCController>> _npcReferences;
 
+    private Dictionary<string, RoomSceneController> _roomReferences;
+
     private float _timeSinceStart = 0f;
 
     public static GameController Instance;
@@ -30,7 +32,7 @@ public class GameController : MonoBehaviour
 
     public SceneReference[] InitialScenes;
 
-    public PlayerController Player;
+    public GameObject Player;
 
     public Text TimeText;
 
@@ -52,6 +54,11 @@ public class GameController : MonoBehaviour
     {
         get;
         private set;
+    }
+
+    public bool IsPlayerInSameRoom(GameObject gameObject)
+    {
+        return gameObject.scene.name == _currentRoomScene.name;
     }
 
     public void OnPortalTrigger(RoomPortal portal)
@@ -98,34 +105,22 @@ public class GameController : MonoBehaviour
         if (!_npcReferences.ContainsKey(sceneName))
             _npcReferences.Add(sceneName, new List<NPCController>());
         
-        DontDestroyOnLoad(controllerGameObject);
         _npcReferences[sceneName].Add(controller);
+    }
+
+    public void RegisterRoom(RoomSceneController controller)
+    {
+        var controllerGameObject = controller.gameObject;
+        string sceneName = controllerGameObject.scene.name;
+        if (!_roomReferences.ContainsKey(sceneName))
+            _roomReferences.Add(sceneName, controller);
     }
 
     private void Start()
     {
         Instance = this;
 
-        _npcReferences = new Dictionary<string, List<NPCController>>();
-
-        // Put up our black canvas.
-        FadeCanvas.gameObject.SetActive(true);
-        FadeCanvas.alpha = 1f;
-        if (Mixer != default)
-            Mixer.SetFloat("MasterVolume", 0f.ToNormalizedVolume());
-
-        // Load our additional scenes.
-        LoadInitialScenes();
-
-        // Make sure dialogues hidden because we'll show instructions first.
-        PauseMenu.SetActive(false);
-        Dialogue.Hide();
-
-        // Start game loop initializations.
-        StartCoroutine(RunInitializeQuestTimelineRoutine());
-
-        // Now reveal the scene.
-        StartCoroutine(RunFadeScreenRoutine(FadeSeconds, 0f, FadeSeconds));
+        StartCoroutine(RunLoadStartRoutine());
     }
 
     private void Update()
@@ -170,13 +165,54 @@ public class GameController : MonoBehaviour
         PauseGame();
     }
 
-    private void LoadInitialScenes()
+    private IEnumerator RunLoadStartRoutine()
     {
+        _npcReferences = new Dictionary<string, List<NPCController>>();
+        _roomReferences = new Dictionary<string, RoomSceneController>();
+
+        // Put up our black canvas.
+        FadeCanvas.gameObject.SetActive(true);
+        FadeCanvas.alpha = 1f;
+        if (Mixer != default)
+            Mixer.SetFloat("MasterVolume", 0f.ToNormalizedVolume());
+
+        // Make sure dialogues hidden because we'll show instructions first.
+        PauseMenu.SetActive(false);
+        Dialogue.Hide();
+
+        // Load initial scenes
         for (int i = 0; i < InitialScenes.Length; i++)
         {
-            SceneManager.LoadScene(InitialScenes[i], LoadSceneMode.Additive);
+            var task = SceneManager.LoadSceneAsync(InitialScenes[i], LoadSceneMode.Additive);
+
+            while (!task.isDone)
+                yield return null;
+
+            var loadedScene = SceneManager.GetSceneByPath(InitialScenes[i]);
+            if (i > 0)
+            {
+                // Hide renderers except for the initial scene
+                ToggleSceneRenderers(loadedScene.name, visible: false);
+            }
+            else
+            {
+                _currentRoomScene = loadedScene;
+            }
         }
-        _currentRoomScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
+
+        // Start game loop initializations.
+        yield return RunInitializeQuestTimelineRoutine();
+
+        // Now reveal the scene.
+       yield return RunFadeScreenRoutine(FadeSeconds, 0f, FadeSeconds);
+    }
+
+    private void ToggleSceneRenderers(string name, bool visible)
+    {
+        for (int i = 0; i < _roomReferences[name].Renderers.Length; i++)
+        {
+            _roomReferences[name].Renderers[i].enabled = visible;
+        } 
     }
 
     private IEnumerator RunReturnToMenuRoutine()
@@ -186,68 +222,34 @@ public class GameController : MonoBehaviour
 
         yield return RunFadeScreenRoutine(1f, 1f, 0f);
 
-        // Destroy all NPCs
-        foreach (var npc in _npcReferences.Values)
-        {
-            for (int i = 0; i < npc.Count; i++)
-            {
-                Destroy(npc[i]);
-            }
-        }
-
         Time.timeScale = 1f;
 
         // Replace everything with menu screen.
         SceneManager.LoadScene(MainMenuScene, LoadSceneMode.Single);
     }
 
-    private IEnumerator RunSwitchRoomRoutine(SceneReference scene)
+    private IEnumerator RunSwitchRoomRoutine(SceneReference scene, bool fadeTransition = true)
     {
         IsTransitioning = true;
 
         // Fade screen
-        yield return RunFadeScreenRoutine(0.2f, 1f, 0f);
+        if (fadeTransition)
+            yield return RunFadeScreenRoutine(0.2f, 1f, 0f);
 
-        // Hide current NPCs
-        if (_npcReferences.ContainsKey(_currentRoomScene.name))
-        {
-            foreach (var npc in _npcReferences[_currentRoomScene.name])
-            {
-                npc.Hide();
-            }
-        }
+        // Hide current renderers
+        ToggleSceneRenderers(_currentRoomScene.name, visible: false);
 
-        // Unload current room
-        var unload = SceneManager.UnloadSceneAsync(_currentRoomScene);
+        _currentRoomScene = SceneManager.GetSceneByPath(scene);
 
-        // Wait for operations to complete
-        while (!unload.isDone)
-            yield return null;
-
-        // Load new room additively
-        SceneManager.LoadScene(scene, LoadSceneMode.Additive);
-
-        _currentRoomScene = SceneManager.GetSceneAt(SceneManager.sceneCount - 1);
-
-        // Show new NPCs
-        if (_npcReferences.ContainsKey(_currentRoomScene.name))
-        {
-            foreach (var npc in _npcReferences[_currentRoomScene.name])
-            {
-                npc.Show();
-            }
-        }
-
-        // Pause for a moment here because we have to wait for a cycle for the new scene to call Start() and
-        // allow us to access the new RoomSceneContoller instance.
-        while (RoomSceneController.Current == null)
-            yield return null;
+        // Show new renderers
+        ToggleSceneRenderers(_currentRoomScene.name, visible: true);
 
         // Move the player to the start position of that room
-        Player.transform.position = RoomSceneController.Current.GetEntryPointForPortal(LastPortalId);
+        Player.transform.position = _roomReferences[_currentRoomScene.name].GetEntryPointForPortal(LastPortalId);
 
         // Reveal new scene
-        yield return RunFadeScreenRoutine(0.2f, 0f, 0f);
+        if (fadeTransition)
+            yield return RunFadeScreenRoutine(0.2f, 0f, 0f);
 
         IsTransitioning = false;
     }

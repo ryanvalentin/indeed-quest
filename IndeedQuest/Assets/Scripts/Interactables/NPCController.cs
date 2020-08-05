@@ -2,27 +2,9 @@
 
 public class NPCController : InteractableController
 {
-    private Renderer[] _renderers;
-
     private NPCProfile CharacterProfile
     {
         get { return Profile as NPCProfile; }
-    }
-
-    public void Hide()
-    {
-        for (int i = 0; i < _renderers.Length; i++)
-        {
-            _renderers[i].enabled = false;
-        }
-    }
-
-    public void Show()
-    {
-        for (int i = 0; i < _renderers.Length; i++)
-        {
-            _renderers[i].enabled = true;
-        }
     }
 
     public override void OnInteract()
@@ -37,7 +19,6 @@ public class NPCController : InteractableController
     // Start is called before the first frame update
     private void Start()
     {
-        _renderers = GetComponentsInChildren<Renderer>();
         GameController.Instance.RegisterNPC(this);
     }
 
