@@ -27,6 +27,16 @@ public class PlayerController : MonoBehaviour
 
     private void UpdateInputs()
     {
+        if (Input.GetKeyUp(KeyCode.Escape))
+        {
+            if (Time.timeScale == 0)
+                GameController.Instance.ResumeGame();
+            else
+                GameController.Instance.PauseGame();
+
+            return;
+        }
+
         _groundedPlayer = Character.isGrounded || transform.position.y <= 0;
         if (_groundedPlayer && _playerVelocity.y < 0)
         {

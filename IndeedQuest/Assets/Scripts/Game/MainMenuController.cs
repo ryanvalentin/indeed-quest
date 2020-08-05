@@ -16,8 +16,9 @@ public class MainMenuController : MonoBehaviour
     // Start is called before the first frame update
     private void Start()
     {
-        FadeCanvas.alpha = 0f;
-        FadeCanvas.gameObject.SetActive(false);
+        FadeCanvas.alpha = 1f;
+        FadeCanvas.gameObject.SetActive(true);
+        StartCoroutine(RunFadeScreenRoutine(FadeSeconds, 0f, 0f, startGame: false));
     }
 
     // Update is called once per frame
@@ -32,7 +33,7 @@ public class MainMenuController : MonoBehaviour
         FadeCanvas.alpha = 0f;
         if (Mixer != default)
             Mixer.SetFloat("MasterVolume", 1f.ToNormalizedVolume());
-        StartCoroutine(FadeScreen(FadeSeconds, 1f, 0f));
+        StartCoroutine(RunFadeScreenRoutine(FadeSeconds, 1f, 0f, startGame: true));
     }
 
     public void ShowAbout()
@@ -45,7 +46,7 @@ public class MainMenuController : MonoBehaviour
         Application.Quit();
     }
 
-    private IEnumerator FadeScreen(float fadeTimeSeconds, float targetAlpha, float initialWait)
+    private IEnumerator RunFadeScreenRoutine(float fadeTimeSeconds, float targetAlpha, float initialWait, bool startGame)
     {
         if (initialWait > 0f)
             yield return new WaitForSeconds(initialWait);
@@ -54,7 +55,7 @@ public class MainMenuController : MonoBehaviour
         float startAlpha = FadeCanvas.alpha;
         while (currentTime < fadeTimeSeconds)
         {
-            currentTime += Time.deltaTime;
+            currentTime += Time.unscaledDeltaTime;
             float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, currentTime / fadeTimeSeconds);
             FadeCanvas.alpha = newAlpha;
 
@@ -63,8 +64,11 @@ public class MainMenuController : MonoBehaviour
                 Mixer.SetFloat("MasterVolume", (1f - newAlpha).ToNormalizedVolume());
 
             yield return null;
-        }        
+        }
 
-        SceneManager.LoadScene(GameStartScene);
+        FadeCanvas.gameObject.SetActive(FadeCanvas.alpha > 0f);
+
+        if (startGame)
+            SceneManager.LoadScene(GameStartScene);
     }
 }
