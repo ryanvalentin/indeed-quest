@@ -1,0 +1,10 @@
+pages:
+  script:
+  # use this to run any scripts
+  - echo 'Nothing to do...'
+  stage: deploy
+  tags:
+  - pages
+  artifacts:
+    paths:
+    - public
