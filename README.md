@@ -30,3 +30,7 @@ First you'll need to either create or pick an existing profile. A profile is a s
 If you don't see a profile for a character/object you want, right click inside the correct folder and in the context menu, go to *Create -> Indeed -> Interactable Profile (or) NPC Profile*. This will create a file in the directory and on the right in the inspector, you'll be able to customize it.
 
 In the *Assets/Prefabs* folder there's several prototypes you can use to build your object. Drag and drop one into the scene you want it in, and then you can assign the profile you created/selected in the inspector.
+
+## Testing the Game
+
+Open the main scene by double clicking *Assets/Scenes/MainMenuScene* to load the menu. Then click the "Play" button on the top. Now you'll be able to test the game from the beginning.

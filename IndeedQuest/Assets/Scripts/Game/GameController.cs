@@ -122,6 +122,9 @@ public class GameController : MonoBehaviour
         PauseMenu.SetActive(false);
         Dialogue.Hide();
 
+        // Start game loop initializations.
+        StartCoroutine(RunInitializeQuestTimelineRoutine());
+
         // Now reveal the scene.
         StartCoroutine(RunFadeScreenRoutine(FadeSeconds, 0f, FadeSeconds));
     }
@@ -129,6 +132,18 @@ public class GameController : MonoBehaviour
     private void Update()
     {
         UpdateGameClock();
+        UpdateQuests();
+    }
+
+    /// <summary>
+    /// Runs through all the NPCs and sets their quest data.
+    /// </summary>
+    private IEnumerator RunInitializeQuestTimelineRoutine()
+    {
+        // Wait a moment for all NPCs to be registered before we determine their quests.
+        yield return new WaitForEndOfFrame();
+
+        // TODO: Loop through all the NPCs and set their quest data.
     }
 
     private void UpdateGameClock()
@@ -144,6 +159,11 @@ public class GameController : MonoBehaviour
 
         TimeSpan ts = TimeSpan.FromSeconds(gameTime);
         TimeText.text = $"{new DateTime(2020, 01, 01, ts.Hours, ts.Minutes, ts.Seconds):hh:mm tt}";
+    }
+
+    private void UpdateQuests()
+    {
+        // TODO: Check all the NPCs and if a quest needs to be triggered at a specific time, do it here.
     }
 
     private void EndGame()
