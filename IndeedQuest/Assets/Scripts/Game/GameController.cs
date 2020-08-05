@@ -95,11 +95,10 @@ public class GameController : MonoBehaviour
     {
         var controllerGameObject = controller.gameObject;
         string sceneName = controllerGameObject.scene.name;
-        DontDestroyOnLoad(controllerGameObject);
-
         if (!_npcReferences.ContainsKey(sceneName))
             _npcReferences.Add(sceneName, new List<NPCController>());
-
+        
+        DontDestroyOnLoad(controllerGameObject);
         _npcReferences[sceneName].Add(controller);
     }
 

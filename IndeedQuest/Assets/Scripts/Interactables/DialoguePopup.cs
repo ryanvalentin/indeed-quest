@@ -23,15 +23,11 @@ public class DialoguePopup : MonoBehaviour
 
     public UnityEvent OnSecondaryClick;
 
-    // Start is called before the first frame update
-    private void Start()
+    public void Show(string title, string description, Sprite icon, string secondaryText = "Close", string primaryText = "")
     {
         _primaryButtonText = PrimaryButton.GetComponentInChildren<Text>();
         _secondaryButtonText = SecondaryButton.GetComponentInChildren<Text>();
-    }
 
-    public void Show(string title, string description, Sprite icon, string secondaryText = "Close", string primaryText = "")
-    {
         if (gameObject.activeInHierarchy)
             return;
 

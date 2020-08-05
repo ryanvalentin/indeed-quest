@@ -14,6 +14,8 @@
 
 **Interactable** - This is a simple object that can be inspected. You can optionally pick up that object if allowed.
 
+**Collectable** - This is an interactable that can also be picked up from the environment and placed into the player's inventory.
+
 **NPC** - This is an extension of an interactable which allows for things like dialogue, quests, etc.
 
 ## Game Structure
