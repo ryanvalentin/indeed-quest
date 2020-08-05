@@ -1,14 +1,13 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
-public class NPCController : InspectDialogue
+public class NPCController : InteractableController
 {
     private Renderer[] _renderers;
 
-    public EmployeeNpcProfile Profile;
-
-    public bool HasQuest = true;
+    private NPCProfile CharacterProfile
+    {
+        get { return Profile as NPCProfile; }
+    }
 
     public void Hide()
     {
@@ -24,6 +23,15 @@ public class NPCController : InspectDialogue
         {
             _renderers[i].enabled = true;
         }
+    }
+
+    public override void OnInteract()
+    {
+        // TODO: If this NPC has a quest, use a different dialogue.
+
+        var dialogue = CharacterProfile.IdleDialogue[Random.Range(0, CharacterProfile.IdleDialogue.Length - 1)];
+
+        GameController.Instance.OnPopupTrigger(Profile.Title, dialogue.Text, Profile.Icon);
     }
 
     // Start is called before the first frame update
@@ -42,8 +50,8 @@ public class NPCController : InspectDialogue
 #if UNITY_EDITOR
     private void OnValidate()
     {
-        if (Profile)
-            PopupTitle = Profile.JobTitle;
+        if (Profile != default && CharacterProfile is null)
+            Debug.LogError($"Profile for controller {name}({nameof(NPCController)}) needs to be of type {nameof(NPCProfile)}");
     }
 #endif
 

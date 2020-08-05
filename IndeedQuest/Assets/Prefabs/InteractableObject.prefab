@@ -194,7 +194,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 8073527902992314214}
-        m_MethodName: OnInspect
+        m_MethodName: OnInteract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -217,7 +217,7 @@ GameObject:
   - component: {fileID: 8073527902992314215}
   - component: {fileID: 8073527902992314214}
   m_Layer: 0
-  m_Name: InteractibleObject
+  m_Name: InteractableObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -281,8 +281,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldSpaceCanvas: {fileID: 8073527903036992703}
-  PopupTitle: A Neat Thing
-  PopupDescription: Holy cow, can you believe what this is!
+  Profile: {fileID: 0}
 --- !u!1 &8073527903036992699
 GameObject:
   m_ObjectHideFlags: 0

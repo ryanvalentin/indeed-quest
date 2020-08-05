@@ -82,9 +82,9 @@ public class GameController : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnPopupTrigger(string title, string description)
+    public void OnPopupTrigger(string title, string description, Sprite icon)
     {
-        Dialogue.Show(title, description);
+        Dialogue.Show(title, description, icon);
     }
 
     /// <summary>

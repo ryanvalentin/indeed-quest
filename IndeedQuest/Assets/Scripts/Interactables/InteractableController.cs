@@ -7,19 +7,15 @@ using UnityEngine.UI;
 /// </summary>
 [RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
-public class InspectDialogue : MonoBehaviour
+public class InteractableController : MonoBehaviour
 {
     public Canvas WorldSpaceCanvas;
 
-    [Tooltip("The title of the object shown upon inspection.")]
-    public string PopupTitle;
+    public InteractableProfile Profile;
 
-    [Tooltip("The description of the object shown upon inspection.")]
-    public string PopupDescription;
-
-    public virtual void OnInspect()
+    public virtual void OnInteract()
     {
-        GameController.Instance.OnPopupTrigger(PopupTitle, PopupDescription);
+        GameController.Instance.OnPopupTrigger(Profile.Title, Profile.Description, Profile.Icon);
     }
 
     private void OnEnable()

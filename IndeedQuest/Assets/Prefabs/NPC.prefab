@@ -78,9 +78,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   WorldSpaceCanvas: {fileID: 3010172787418384071}
-  PopupTitle: Product Manager
-  PopupDescription: I'm busy right now
-  Profile: {fileID: 11400000, guid: f271385c401366f4d9bef136fa40fb13, type: 2}
+  Profile: {fileID: 0}
   HasQuest: 1
 --- !u!1 &3010172787418384067
 GameObject:
@@ -301,7 +299,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 3010172787076608456}
-        m_MethodName: OnInspect
+        m_MethodName: OnInteract
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

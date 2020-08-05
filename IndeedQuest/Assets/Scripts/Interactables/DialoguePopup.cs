@@ -13,6 +13,8 @@ public class DialoguePopup : MonoBehaviour
 
     public Text DescriptionText;
 
+    public Image IconImage;
+
     public Button PrimaryButton;
 
     public Button SecondaryButton;
@@ -28,10 +30,12 @@ public class DialoguePopup : MonoBehaviour
         _secondaryButtonText = SecondaryButton.GetComponentInChildren<Text>();
     }
 
-    public void Show(string title, string description, string secondaryText = "Close", string primaryText = "")
+    public void Show(string title, string description, Sprite icon, string secondaryText = "Close", string primaryText = "")
     {
         if (gameObject.activeInHierarchy)
             return;
+
+        IconImage.sprite = icon;
 
         _primaryButtonText.text = primaryText;
         PrimaryButton.gameObject.SetActive(!String.IsNullOrEmpty(primaryText));
