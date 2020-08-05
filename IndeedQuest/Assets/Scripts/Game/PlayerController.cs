@@ -4,53 +4,31 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
-    private bool _groundedPlayer;
-    private Vector3 _playerVelocity;
-    private const float _jumpHeight = 1.0f;
-    private const float _gravityValue = -9.81f;
 
-    public CharacterController Character;
-
-    [Range(1f, 5f)]
-    public float MoveSpeed = 2f;    
-
+    public float speed;
+    private Rigidbody jobbyBody;
     // Start is called before the first frame update
-    private void Start()
+    void Start()
     {
+        jobbyBody = GetComponent<Rigidbody>();
     }
 
     // Update is called once per frame
-    private void Update()
+    void Update()
     {
-        UpdateInputs();
+        walk();
     }
 
-    private void UpdateInputs()
+    void walk() 
     {
-        if (Input.GetKeyUp(KeyCode.Escape))
-        {
-            if (Time.timeScale == 0)
-                GameController.Instance.ResumeGame();
-            else
-                GameController.Instance.PauseGame();
-
+        // Locks player movement when we change scenes because the controller
+        // will manually move the player into a position.
+        if (GameController.Instance.IsTransitioning)
             return;
-        }
 
-        _groundedPlayer = Character.isGrounded || transform.position.y <= 0;
-        if (_groundedPlayer && _playerVelocity.y < 0)
-        {
-            _playerVelocity.y = 0f;
-        }
-
-        Vector3 move = new Vector3(Input.GetAxis("Horizontal"), 0, Input.GetAxis("Vertical"));
-        Character.Move(move * Time.deltaTime * MoveSpeed);
-
-        if (move != Vector3.zero)
-        {
-            gameObject.transform.forward = move;
-        }
-
-        Character.Move(_playerVelocity * Time.deltaTime);
+        float moveHor = Input.GetAxis("Horizontal");
+        float moveVer = Input.GetAxis("Vertical");
+        Vector3 playerVel = new Vector3(moveHor * speed, 0, moveVer * speed);
+        jobbyBody.velocity = playerVel;
     }
 }

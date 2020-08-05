@@ -1,5 +1,6 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 /// <summary>
@@ -7,25 +8,27 @@ using UnityEngine;
 /// </summary>
 public class RoomSceneController : MonoBehaviour
 {
-    public static RoomSceneController Current;
-
     public RoomPortal[] Portals;
 
+    public Renderer[] Renderers;
+
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        Current = this;
+        List<Renderer> renderers = new List<Renderer>();
+        var rootObjects = gameObject.scene.GetRootGameObjects();
+        for (int i = 0; i < rootObjects.Length; i++)
+        {
+            renderers.AddRange(rootObjects[i].GetComponentsInChildren<Renderer>());
+        }
+        Renderers = renderers.ToArray();
+        GameController.Instance.RegisterRoom(this);
     }
 
     // Update is called once per frame
     void Update()
     {
         
-    }
-
-    private void OnDestroy()
-    {
-        Current = null;
     }
 
     public Vector3 GetEntryPointForPortal(string portalId)

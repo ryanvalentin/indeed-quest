@@ -32,7 +32,7 @@ public class RoomPortal : MonoBehaviour
             return;
 
         // Transition to the next scene.
-        if (other.CompareTag("Player"))
+        if (other.CompareTag("Player") && GameController.Instance.IsPlayerInSameRoom(gameObject))
             GameController.Instance.OnPortalTrigger(this);
     }
 
