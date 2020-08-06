@@ -13,6 +13,6 @@ MonoBehaviour:
   m_Name: LaCroixCollectibleProfile
   m_EditorClassIdentifier: 
   Title: La Croix (Pampelmousse)
-  Description: A tasty, refreshing treat that is inferior to Spindrift.
+  Description: A tasty, refreshing treat for the weary worker.
   Icon: {fileID: 21300000, guid: e5be8b4c70b72d646a24e47eccb74474, type: 3}
   Id: 8829616a-3300-41a0-bab9-00ace351c976
