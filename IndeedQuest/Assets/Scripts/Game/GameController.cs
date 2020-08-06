@@ -10,17 +10,15 @@ using UnityEngine.UI;
 
 public class GameController : MonoBehaviour
 {
-    private Scene _currentRoomScene;
-
-    private Dictionary<string, List<NPCController>> _npcReferences;
-
-    private Dictionary<string, RoomSceneController> _roomReferences;
-
-    private float _timeSinceStart = 0f;
-
-    private int _currentScore = 0;
+    //
+    // Static
 
     public static GameController Instance;
+
+    //
+    // Properties
+
+    public GameplayProfile Profile;
 
     public SceneReference MainMenuScene;
 
@@ -28,13 +26,9 @@ public class GameController : MonoBehaviour
 
     public DialoguePopup Dialogue;
 
-    public AudioMixer Mixer;
-
-    public float FadeSeconds = 1f;
-
     public SceneReference[] InitialScenes;
 
-    public GameObject Player;
+    public PlayerController Player;
 
     public Text TimeText;
 
@@ -42,32 +36,26 @@ public class GameController : MonoBehaviour
 
     public GameObject PauseMenu;
 
-    [Tooltip("The multiplier applied to each second to represent time in-game. e.g. a value of 60 would mean 1 second = 1 minute.")]
-    [Min(1f)]
-    public float TimeScale = 60f;
+    //
+    // Private variables
 
-    public string LastPortalId
-    {
-        get;
-        private set;
-    }
+    private Scene _currentRoomScene;
 
-    public bool IsTransitioning
-    {
-        get;
-        private set;
-    }
+    private Dictionary<string, List<NPCController>> _npcReferences;
 
-    public float TimeSinceStart
-    {
-        get { return _timeSinceStart; }
-    }
+    private Dictionary<string, RoomSceneController> _roomReferences;
 
-    public QuestProfile ActiveQuest
-    {
-        get;
-        private set;
-    }
+    public string LastPortalId { get; private set; }
+
+    public bool IsTransitioning { get; private set; }
+
+    public float TimeSinceStart { get; private set; } = 0f;
+
+    public int CurrentScore { get; private set; } = 0;
+
+    public QuestProfile ActiveQuest { get; private set; }
+
+    public bool GameHasStarted { get; private set; } = false;
 
     public bool IsPlayerInSameRoom(GameObject gameObject)
     {
@@ -82,7 +70,7 @@ public class GameController : MonoBehaviour
 
     public void OnContributeToScore(int score)
     {
-        _currentScore += score;
+        CurrentScore += score;
     }
 
     public void OnStartQuest(QuestProfile quest)
@@ -107,6 +95,7 @@ public class GameController : MonoBehaviour
     {
         if (showMenu)
             PauseMenu.SetActive(true);
+
         Time.timeScale = 0f;
     }
 
@@ -161,7 +150,6 @@ public class GameController : MonoBehaviour
 
     private void Update()
     {
-        UpdateQuests();
     }
 
     private void LateUpdate()
@@ -181,34 +169,60 @@ public class GameController : MonoBehaviour
         // TODO: Loop through all the NPCs and set their quest data.
     }
 
+    private void ConfigurePlayer()
+    {
+        Player.speed = Profile.PlayerMoveSpeed;
+    }
+
     private void UpdateScore()
     {
-        ScoreText.text = $"{_currentScore:N0} people we've helped get jobs";
+        ScoreText.text = $"{CurrentScore:N0} people we've helped get jobs";
     }
 
     private void UpdateGameClock()
     {
         const float timeBase = 32400f; // 9:00 in seconds
         const float eightHours = timeBase + 28800f; // 8 hours in seconds
-        _timeSinceStart += Time.deltaTime;
 
-        float gameTime = timeBase + (_timeSinceStart * TimeScale);
+        float gameTime = timeBase;
+        if (GameHasStarted)
+        {
+            // Only start ticking time when the player has started the game.
 
-        if (gameTime > eightHours)
-            EndGame();
+            TimeSinceStart += Time.deltaTime;
+
+            gameTime += (TimeSinceStart * Profile.TimeScale);
+
+            if (gameTime > eightHours)
+                EndGame();
+        }
 
         TimeSpan ts = TimeSpan.FromSeconds(gameTime);
         TimeText.text = $"{new DateTime(2020, 01, 01, ts.Hours, ts.Minutes, ts.Seconds):hh:mm tt}";
     }
 
-    private void UpdateQuests()
-    {
-        // TODO: Check all the NPCs and if a quest needs to be triggered at a specific time, do it here.
-    }
-
     private void EndGame()
     {
-        PauseGame();
+        PauseGame(showMenu: false);
+
+        string gameOverText = Profile.DefaultGameOverText;
+        // TODO: Analyze profile to determine how the game should end.
+        for (int i = 0; i < Profile.EndResults.Length; i++)
+        {
+            var result = Profile.EndResults[i];
+
+            if (CurrentScore.CompareValues(result.ScoreCondition.Comparison, result.ScoreCondition.Value))
+            {
+                gameOverText = result.GameOverText;
+                break;
+            }
+        }
+
+        // Subscribe to when the player clicks the close button to go back to the main menu.
+        Dialogue.OnSecondaryClick.AddListener(ReturnToMenu);
+
+        // Show end dialogue.
+        OnPopupTrigger(Profile.PlayerName, gameOverText, Profile.PlayerAvatar);
     }
 
     private IEnumerator RunLoadStartRoutine()
@@ -219,8 +233,8 @@ public class GameController : MonoBehaviour
         // Put up our black canvas.
         FadeCanvas.gameObject.SetActive(true);
         FadeCanvas.alpha = 1f;
-        if (Mixer != default)
-            Mixer.SetFloat("MasterVolume", 0f.ToNormalizedVolume());
+        if (Profile.Mixer != default)
+            Profile.Mixer.SetFloat("MasterVolume", 0f.ToNormalizedVolume());
 
         // Make sure dialogues hidden because we'll show instructions first.
         PauseMenu.SetActive(false);
@@ -246,11 +260,18 @@ public class GameController : MonoBehaviour
             }
         }
 
+        ConfigurePlayer();
+
         // Start game loop initializations.
         yield return RunInitializeQuestTimelineRoutine();
 
         // Now reveal the scene.
-       yield return RunFadeScreenRoutine(FadeSeconds, 0f, FadeSeconds);
+        yield return RunFadeScreenRoutine(Profile.GameFadeTimeSeconds, 0f, Profile.GameFadeTimeSeconds);
+
+        // Lastly show the instruction
+        OnPopupTrigger(Profile.PlayerName, Profile.IntroductionText, Profile.PlayerAvatar);
+
+        GameHasStarted = true;
     }
 
     private void ToggleSceneRenderers(string name, bool visible)
@@ -280,7 +301,7 @@ public class GameController : MonoBehaviour
 
         // Fade screen
         if (fadeTransition)
-            yield return RunFadeScreenRoutine(0.2f, 1f, 0f);
+            yield return RunFadeScreenRoutine(Profile.SceneTransitionTimeSeconds, 1f, 0f);
 
         // Hide current renderers
         ToggleSceneRenderers(_currentRoomScene.name, visible: false);
@@ -295,7 +316,7 @@ public class GameController : MonoBehaviour
 
         // Reveal new scene
         if (fadeTransition)
-            yield return RunFadeScreenRoutine(0.2f, 0f, 0f);
+            yield return RunFadeScreenRoutine(Profile.SceneTransitionTimeSeconds, 0f, 0f);
 
         IsTransitioning = false;
     }
@@ -314,8 +335,8 @@ public class GameController : MonoBehaviour
             FadeCanvas.alpha = newAlpha;
 
             // Also fade audio (this is the inverted value).
-            if (Mixer != default)
-                Mixer.SetFloat("MasterVolume", (1f - newAlpha).ToNormalizedVolume());
+            if (Profile.Mixer != default)
+                Profile.Mixer.SetFloat("MasterVolume", (1f - newAlpha).ToNormalizedVolume());
 
             yield return null;
         }
