@@ -1347,7 +1347,7 @@ PrefabInstance:
         type: 3}
       propertyPath: Quest
       value: 
-      objectReference: {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70,
+      objectReference: {fileID: 11400000, guid: ffcc7f7a641b84e80ba0c8ba8daff52d,
         type: 2}
     - target: {fileID: 3010172787076608457, guid: 2e3e3a00c37368d41a11db826dcc1e9d,
         type: 3}
