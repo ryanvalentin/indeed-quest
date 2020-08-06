@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4aa6420097d4e75458a2d3acfcb73b8b, type: 3}
-  m_Name: LaCroixQuestProfile 1
+  m_Name: TestInProd
   m_EditorClassIdentifier: 
   Name: Fetch a La Croix
   InstructionsText: I'm thirsty! Get me a La Croix. Pampelmousse or nothing.
