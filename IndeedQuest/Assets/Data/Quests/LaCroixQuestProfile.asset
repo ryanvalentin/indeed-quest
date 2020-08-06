@@ -21,6 +21,6 @@ MonoBehaviour:
   CompleteText: Ahhh. Just what I needed! Hopefully they get Spindrift soon.
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 11400000, guid: 79fac36dd1587114aa29027c397a4b8a, type: 2}
+  Collectible: {fileID: 11400000, guid: 87a08546cb6e54d2d91b5ab47899ecc9, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}
