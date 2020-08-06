@@ -9,6 +9,13 @@ public class PlayerController : MonoBehaviour
     [HideInInspector]
     public float speed;
 
+    /* status code 
+        0: front
+        1: back
+        2: left
+        3: right */
+    public Animator playeranime;
+
     void Start()
     {
         jobbyBody = GetComponent<Rigidbody>();
@@ -19,6 +26,23 @@ public class PlayerController : MonoBehaviour
     {
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
+        if (Input.GetKey(KeyCode.DownArrow)) 
+        {
+            playeranime.SetInteger("status", 0);
+        }
+        if (Input.GetKey(KeyCode.UpArrow)) 
+        {
+            playeranime.SetInteger("status", 1);
+        }
+        if (Input.GetKey(KeyCode.LeftArrow)) 
+        {
+            playeranime.SetInteger("status", 2);
+        }
+        if (Input.GetKey(KeyCode.RightArrow)) 
+        {
+            playeranime.SetInteger("status", 3);
+        }
+
     }
 
     private void FixedUpdate()
