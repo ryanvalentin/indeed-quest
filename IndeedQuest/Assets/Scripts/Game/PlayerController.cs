@@ -6,14 +6,16 @@ public class PlayerController : MonoBehaviour
     private float horizontalInput;
     private float verticalInput;
 
+    private bool isWalking = false;
+
     [HideInInspector]
     public float speed;
 
     /* status code 
-        0: front
-        1: back
-        2: left
-        3: right */
+        1: front
+        2: back
+        3: left
+        4: right */
     public Animator playeranime;
 
     void Start()
@@ -24,25 +26,40 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        isWalking = false;
         horizontalInput = Input.GetAxis("Horizontal");
         verticalInput = Input.GetAxis("Vertical");
         if (Input.GetKey(KeyCode.DownArrow)) 
         {
-            playeranime.SetInteger("status", 0);
+            isWalking = true;
+            playeranime.SetInteger("status", -1);
         }
         if (Input.GetKey(KeyCode.UpArrow)) 
         {
-            playeranime.SetInteger("status", 1);
+            isWalking = true;
+            playeranime.SetInteger("status", -2);
         }
         if (Input.GetKey(KeyCode.LeftArrow)) 
         {
-            playeranime.SetInteger("status", 2);
+            isWalking = true;
+            playeranime.SetInteger("status", -3);
         }
         if (Input.GetKey(KeyCode.RightArrow)) 
         {
-            playeranime.SetInteger("status", 3);
+            isWalking = true;
+            playeranime.SetInteger("status", -4);
         }
-
+        if (!isWalking) {
+            int prev_status = playeranime.GetInteger("status");
+            if (prev_status < 0) 
+            {
+                playeranime.SetInteger("status", -prev_status);
+            }
+            else 
+            {
+                playeranime.SetInteger("status", prev_status);
+            }
+        }
     }
 
     private void FixedUpdate()
