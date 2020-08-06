@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
@@ -25,10 +23,10 @@ public class PlayerController : MonoBehaviour
 
     private void FixedUpdate()
     {
-        walk();
+        Walk();
     }
 
-    void walk() 
+    void Walk() 
     {
         // Locks player movement when we change scenes because the controller
         // will manually move the player into a position.
