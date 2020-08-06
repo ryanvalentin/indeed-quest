@@ -18,6 +18,6 @@ MonoBehaviour:
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: Oops! I forgot to update the jira status.
-  - Text: '*sigh* I''m on DFR this week.'
-  - Text: Psst. Just approve my merge request.
+  - Text: I won't make it inbefore standup.
+  - Text: '*Types loudly*'
+  - Text: Can we get logging on this?
