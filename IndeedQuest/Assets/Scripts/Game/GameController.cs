@@ -55,6 +55,8 @@ public class GameController : MonoBehaviour
 
     public QuestProfile ActiveQuest { get; private set; }
 
+    public List<QuestProfile> CompletedQuests { get; } = new List<QuestProfile>();
+
     public bool GameHasStarted { get; private set; } = false;
 
     public bool IsPlayerInSameRoom(GameObject gameObject)
@@ -80,7 +82,7 @@ public class GameController : MonoBehaviour
 
     public void OnCompleteQuest()
     {
-        // TODO: Store the active quest somewhere for reference later?
+        CompletedQuests.Add(ActiveQuest);
 
         ActiveQuest = null;
     }
@@ -166,7 +168,7 @@ public class GameController : MonoBehaviour
         // Wait a moment for all NPCs to be registered before we determine their quests.
         yield return new WaitForEndOfFrame();
 
-        // TODO: Loop through all the NPCs and set their quest data.
+        // TODO: Determine the number of random quests to assign and pick a random NPC to assign it to.
     }
 
     private void ConfigurePlayer()
@@ -206,7 +208,6 @@ public class GameController : MonoBehaviour
         PauseGame(showMenu: false);
 
         string gameOverText = Profile.DefaultGameOverText;
-        // TODO: Analyze profile to determine how the game should end.
         for (int i = 0; i < Profile.EndResults.Length; i++)
         {
             var result = Profile.EndResults[i];

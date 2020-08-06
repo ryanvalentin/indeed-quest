@@ -26,8 +26,8 @@ public class QuestProfile : ScriptableObject
     [Range(0f, 28799f), Tooltip("Time in seconds since the start of the day that this quest is triggered")]
     public float StartTime;
 
-    [Tooltip("The collectable requested in this quest.")]
-    public CollectableProfile Collectable;
+    [Tooltip("The collectible requested in this quest.")]
+    public CollectibleProfile Collectible;
 
     [HideInInspector]
     public bool IsComplete = false;

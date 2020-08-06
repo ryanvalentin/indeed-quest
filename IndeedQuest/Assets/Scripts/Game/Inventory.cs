@@ -6,7 +6,7 @@ public class Inventory : MonoBehaviour
 {
     public static Inventory Instance { get; private set; }
 
-    public CollectableProfile CurrentItem;
+    public CollectibleProfile CurrentItem;
 
     // Start is called before the first frame update
     private void Start()
