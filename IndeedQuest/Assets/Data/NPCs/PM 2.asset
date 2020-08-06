@@ -15,7 +15,7 @@ MonoBehaviour:
   Title: Product Manager
   Description: I'm a professional. There's nothing I don't know. I'm like a small
     CEO.
-  Icon: {fileID: 21300000, guid: 8f4c6b86570c24881ad8a1a4ee28789c, type: 3}
+  Icon: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:

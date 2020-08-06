@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: QA
   Description: I break things.
-  Icon: {fileID: 21300000, guid: 0b33ba2167d1a49bcbe8a7df38d9205c, type: 3}
+  Icon: {fileID: 21300000, guid: 6b8da863499e04fa8b77bfd6980d84bd, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:

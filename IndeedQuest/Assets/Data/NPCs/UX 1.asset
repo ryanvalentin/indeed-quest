@@ -14,7 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: UX Designer
   Description: Everything must be pixel perfect!
-  Icon: {fileID: 21300000, guid: 9bcbbd1cb741942a89f5152507ee43a0, type: 3}
+  Icon: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
