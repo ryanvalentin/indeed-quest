@@ -6,6 +6,8 @@ public class NPCController : InteractableController
 {
     private float _currentProductivity;
 
+    public QuestProfile Quest = null;
+
     [Min(0f), Tooltip("The minimum amount of time before calculating new jobs for the score.")]
     public float ReportingIntervalMinimum = 2f;
 
@@ -17,33 +19,72 @@ public class NPCController : InteractableController
         get { return Profile as NPCProfile; }
     }
 
+    public bool HasQuest
+    {
+        get 
+        {
+            if (Quest == null)
+                return false;
+
+            if (Quest.IsComplete)
+                return false;
+
+            return GameController.Instance.TimeSinceStart >= Quest.StartTime; 
+        }
+    }
+
+    public bool IsQuestActive
+    {
+        get
+        {
+            return GameController.Instance.ActiveQuest == Quest;
+        }
+    }
+
     public override void OnInteract()
     {
-        // TODO: If this NPC has a quest, use a different dialogue.
+        if (IsQuestActive)
+        {
+            if (Inventory.Instance.CurrentItem == null)
+            {
+                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.QuestIncompleteText[Random.Range(0, Quest.QuestIncompleteText.Length)], Profile.Icon);
+            }
+            else if (Inventory.Instance.CurrentItem.Id == Quest.Collectable.Id)
+            {
+                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.CompleteText, Profile.Icon);
+                GameController.Instance.OnCompleteQuest();
+            }
+            else
+            {
+                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.WrongItemText, Profile.Icon);
+            }
+        }
+        else if (HasQuest)
+        {
+            GameController.Instance.OnQuestPopupTrigger(Profile.Title, Quest.InstructionsText, Profile.Icon);
+            GameController.Instance.OnStartQuest(Quest);
+        }
+        else
+        {
+            var dialogue = CharacterProfile.IdleDialogue[Random.Range(0, CharacterProfile.IdleDialogue.Length)];
 
-        var dialogue = CharacterProfile.IdleDialogue[Random.Range(0, CharacterProfile.IdleDialogue.Length - 1)];
-
-        GameController.Instance.OnPopupTrigger(Profile.Title, dialogue.Text, Profile.Icon);
+            GameController.Instance.OnPopupTrigger(Profile.Title, dialogue.Text, Profile.Icon);
+        }
     }
 
     // Start is called before the first frame update
     private void Start()
     {
+        // Clone the Quest so we don't modify original file in play mode.
+        if (Quest != null)
+        {
+            Quest = Instantiate(Quest);
+            Quest.IsComplete = false;
+            Quest.Owner = this;
+        }        
+
         GameController.Instance.RegisterNPC(this);
         StartCoroutine(RunContributeScoreRoutine());
-    }
-
-    // Update is called once per frame
-    private void Update()
-    {
-        UpdateQuests();
-        UpdateProductivity();
-    }
-
-    private void UpdateProductivity()
-    {
-        // TODO: reduce this based on time until next quest (and 0 if they have a quest)
-        _currentProductivity = 1f;
     }
 
     private IEnumerator RunContributeScoreRoutine()
@@ -52,6 +93,11 @@ public class NPCController : InteractableController
 
         while (true)
         {
+            if (HasQuest && !IsQuestActive)
+                _currentProductivity = Random.Range(0f, 0.1f);
+            else
+                _currentProductivity = Random.Range(0.5f, 1f); // TODO: Count productivity down the closer they are to needing something.
+
             var jobsContributed = Random.Range(CharacterProfile.MinJobsPerMinute, CharacterProfile.MaxJobsPerMinute) * _currentProductivity;
 
             GameController.Instance.OnContributeToScore((int)jobsContributed);
