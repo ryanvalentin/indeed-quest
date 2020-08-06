@@ -1,6 +1,6 @@
-﻿using System.Collections;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 /// <summary>
 /// Attach to the player to manage their current active quest. This should be able to
@@ -9,35 +9,76 @@ using UnityEngine;
 /// </summary>
 public class PlayerQuestController : MonoBehaviour
 {
-    [SerializeField]
-    private QuestProfile _currentQuest;
+    public static PlayerQuestController Instance { get; private set; }
 
-    public QuestProfile CurrentQuest
+    [SerializeField]
+    private QuestProfile _activeQuest;
+
+    public Canvas QuestItemCanvas;
+
+    public Image QuestIconImage;
+
+    public QuestProfile ActiveQuest
     {
-        get { return _currentQuest; }
+        get { return _activeQuest; }
         set
         {
-            _currentQuest = value;
+            _activeQuest = value;
+            OnActiveQuestChanged();
         }
     }
 
-    // Start is called before the first frame update
-    void Start()
+    public List<QuestProfile> CompletedQuests { get; } = new List<QuestProfile>();
+
+    public void OnStartQuest(QuestProfile quest)
     {
-        
+        ActiveQuest = quest;
     }
 
-    // Update is called once per frame
-    void Update()
+    public void OnCancelQuest()
     {
-        
+        ActiveQuest = null;
     }
 
-    public void ShowCurrentQuest()
+    public void OnCompleteQuest()
     {
-        if (!CurrentQuest)
+        CompletedQuests.Add(ActiveQuest);
+
+        Inventory.Instance.OnItemTaken();
+
+        ActiveQuest = null;
+    }
+
+    public void ShowActiveQuest()
+    {
+        if (!ActiveQuest)
             return;
 
-        // TODO: Show the UI here
+        GameController.Instance.OnActiveQuestPopupTrigger(ActiveQuest.Name, ActiveQuest.InstructionsText, ActiveQuest.Owner.Profile.Icon, gameObject);
+    }
+
+    // Start is called before the first frame update
+    private void Start()
+    {
+        Instance = this;
+        OnActiveQuestChanged();
+    }
+
+    private void OnActiveQuestChanged()
+    {
+        if (!_activeQuest)
+        {
+            if (QuestItemCanvas.isActiveAndEnabled)
+                QuestItemCanvas.enabled = false;
+
+            QuestIconImage.sprite = null;
+        }
+        else
+        {
+            if (!QuestItemCanvas.isActiveAndEnabled)
+                QuestItemCanvas.enabled = true;
+
+            QuestIconImage.sprite = ActiveQuest.Owner.Profile.Icon;
+        }
     }
 }

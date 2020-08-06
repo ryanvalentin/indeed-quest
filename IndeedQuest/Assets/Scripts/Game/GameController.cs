@@ -56,10 +56,6 @@ public class GameController : MonoBehaviour
 
     public int CurrentScore { get; private set; } = 0;
 
-    public QuestProfile ActiveQuest { get; private set; }
-
-    public List<QuestProfile> CompletedQuests { get; } = new List<QuestProfile>();
-
     public bool GameHasStarted { get; private set; } = false;
 
     public bool IsPlayerInSameRoom(GameObject gameObject)
@@ -76,18 +72,6 @@ public class GameController : MonoBehaviour
     public void OnContributeToScore(int score)
     {
         CurrentScore += score;
-    }
-
-    public void OnStartQuest(QuestProfile quest)
-    {
-        ActiveQuest = quest;
-    }
-
-    public void OnCompleteQuest()
-    {
-        CompletedQuests.Add(ActiveQuest);
-
-        ActiveQuest = null;
     }
 
     public void ResumeGame()
@@ -121,17 +105,22 @@ public class GameController : MonoBehaviour
 
     public void OnInventoryTrigger(string title, string description, Sprite icon, GameObject sender)
     {
-        Dialogue.Show(sender, title, description, icon, "Done", "Drop Item");
+        Dialogue.Show(sender, title, description, icon, "Close", "Drop Item");
     }
 
     public void OnCollectiblePopupTrigger(string title, string description, Sprite icon, GameObject sender)
     {
-        Dialogue.Show(sender, title, description, icon, "Done", "Take");
+        Dialogue.Show(sender, title, description, icon, "Close", "Take");
     }
 
     public void OnQuestPopupTrigger(string title, string description, Sprite icon, GameObject sender)
     {
         Dialogue.Show(sender, title, description, icon, "Decline", "Accept");
+    }
+
+    public void OnActiveQuestPopupTrigger(string title, string description, Sprite icon, GameObject sender)
+    {
+        Dialogue.Show(sender, title, description, icon, "Close", "Unaccept");
     }
 
     /// <summary>

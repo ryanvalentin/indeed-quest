@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 9cf6c897f4e25ca4c8452ff20bc4e84f, type: 3}
-  m_Name: LaCroixCollectibleProfile
+  m_Name: StarbucksReserveCoffeeProfile
   m_EditorClassIdentifier: 
-  Title: La Croix (Pampelmousse)
-  Description: A tasty, refreshing treat that is inferior to Spindrift.
+  Title: Starbucks Reserve Coffee
+  Description: Non-basic
   Icon: {fileID: 21300000, guid: e5be8b4c70b72d646a24e47eccb74474, type: 3}
   Id: 8829616a-3300-41a0-bab9-00ace351c976
