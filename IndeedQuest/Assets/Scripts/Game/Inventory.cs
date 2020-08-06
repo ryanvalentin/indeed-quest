@@ -4,12 +4,14 @@ using UnityEngine;
 
 public class Inventory : MonoBehaviour
 {
-    public List<CollectableProfile> Items;
+    public static Inventory Instance { get; private set; }
+
+    public CollectableProfile CurrentItem;
 
     // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        
+        Instance = this;
     }
 
     // Update is called once per frame

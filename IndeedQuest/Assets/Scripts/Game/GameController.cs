@@ -58,6 +58,17 @@ public class GameController : MonoBehaviour
         private set;
     }
 
+    public float TimeSinceStart
+    {
+        get { return _timeSinceStart; }
+    }
+
+    public QuestProfile ActiveQuest
+    {
+        get;
+        private set;
+    }
+
     public bool IsPlayerInSameRoom(GameObject gameObject)
     {
         return gameObject.scene.name == _currentRoomScene.name;
@@ -74,15 +85,28 @@ public class GameController : MonoBehaviour
         _currentScore += score;
     }
 
+    public void OnStartQuest(QuestProfile quest)
+    {
+        ActiveQuest = quest;
+    }
+
+    public void OnCompleteQuest()
+    {
+        // TODO: Store the active quest somewhere for reference later?
+
+        ActiveQuest = null;
+    }
+
     public void ResumeGame()
     {
         PauseMenu.SetActive(false);
         Time.timeScale = 1f;
     }
 
-    public void PauseGame()
+    public void PauseGame(bool showMenu = true)
     {
-        PauseMenu.SetActive(true);
+        if (showMenu)
+            PauseMenu.SetActive(true);
         Time.timeScale = 0f;
     }
 
@@ -99,6 +123,11 @@ public class GameController : MonoBehaviour
     public void OnPopupTrigger(string title, string description, Sprite icon)
     {
         Dialogue.Show(title, description, icon);
+    }
+
+    public void OnQuestPopupTrigger(string title, string description, Sprite icon)
+    {
+        Dialogue.Show(title, description, icon, "Decline", "Accept");
     }
 
     /// <summary>

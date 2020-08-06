@@ -43,7 +43,7 @@ public class DialoguePopup : MonoBehaviour
 
         gameObject.SetActive(true);
 
-        GameController.Instance.PauseGame();
+        GameController.Instance.PauseGame(showMenu: false);
     }
 
     public void Hide()
