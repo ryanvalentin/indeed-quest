@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa6420097d4e75458a2d3acfcb73b8b, type: 3}
+  m_Name: MissingMeat
+  m_EditorClassIdentifier: 
+  Name: Missing Meat
+  InstructionsText: Enjoy the meat! nom nom nom. Wait... where did all the meat go?
+  WrongItemText: '{item.variant}? Just no.'
+  QuestIncompleteText:
+  - I'm going to get so many complaints without that meat.
+  CompleteText: Ahh lunch is saved!
+  RandomizeStartTime: 0
+  StartTime: 0
+  Collectible: {fileID: 11400000, guid: 79fac36dd1587114aa29027c397a4b8a, type: 2}
+  IsComplete: 0
+  Owner: {fileID: 0}
