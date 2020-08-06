@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 3187143770443801102}
   - component: {fileID: 4096693796575304930}
   - component: {fileID: 4103668181388828736}
+  - component: {fileID: 2923056214321468321}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -94,6 +95,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 2
+  playeranime: {fileID: 2923056214321468321}
 --- !u!114 &4103668181388828736
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -107,6 +109,25 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _currentQuest: {fileID: 0}
+--- !u!95 &2923056214321468321
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3839080659770028554}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 848525843061d4cf48db9934f404c629, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &7619456987759865894
 GameObject:
   m_ObjectHideFlags: 0
