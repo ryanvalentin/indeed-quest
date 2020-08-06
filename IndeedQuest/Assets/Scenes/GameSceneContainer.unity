@@ -2245,6 +2245,31 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 941295928}
   m_CullTransparentMesh: 0
+--- !u!1 &1067899344 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 7619456987759865894, guid: b51fd4250d9b59b42bedee6251dc24b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3839080659679109860}
+  m_PrefabAsset: {fileID: 0}
+--- !u!95 &1067899347
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1067899344}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 848525843061d4cf48db9934f404c629, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &1134777954
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5005,6 +5030,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4096693796575304930, guid: b51fd4250d9b59b42bedee6251dc24b1,
+        type: 3}
+      propertyPath: playeranime
+      value: 
+      objectReference: {fileID: 1067899347}
     - target: {fileID: 4103668181388828736, guid: b51fd4250d9b59b42bedee6251dc24b1,
         type: 3}
       propertyPath: QuestIconImage
@@ -5047,6 +5077,7 @@ PrefabInstance:
       objectReference: {fileID: 272903724}
     m_RemovedComponents:
     - {fileID: 7251448598122876730, guid: b51fd4250d9b59b42bedee6251dc24b1, type: 3}
+    - {fileID: 2923056214321468321, guid: b51fd4250d9b59b42bedee6251dc24b1, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: b51fd4250d9b59b42bedee6251dc24b1, type: 3}
 --- !u!4 &3839080659679109861 stripped
 Transform:
