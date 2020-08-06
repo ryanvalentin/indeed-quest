@@ -53,6 +53,14 @@ public class Inventory : MonoBehaviour
         CurrentItem = collectible.CollectibleProfile;
     }
 
+    public void OnItemTaken()
+    {
+        // Item has been taken, so destroy the original
+        Destroy(_originalController.gameObject);
+        CurrentItem = null;
+        _originalController = null;
+    }
+
     private void OnCurrentItemChange()
     {
         if (!_currentItem)

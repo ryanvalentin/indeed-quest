@@ -850,8 +850,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -2266.5, y: -10}
-  m_SizeDelta: {x: -7, y: -22}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: -12, y: -12}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &287259481
 GameObject:
@@ -2965,7 +2965,18 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1250584789}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2045851502}
+        m_MethodName: ShowActiveQuest
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &1250584789
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4717,6 +4728,18 @@ MonoBehaviour:
   m_ChildControlHeight: 1
   m_ChildScaleWidth: 1
   m_ChildScaleHeight: 1
+--- !u!114 &2045851502 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 4103668181388828736, guid: b51fd4250d9b59b42bedee6251dc24b1,
+    type: 3}
+  m_PrefabInstance: {fileID: 3839080659679109860}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31386d570671319499abc17b1ad045f6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2048620274
 GameObject:
   m_ObjectHideFlags: 0
@@ -4982,6 +5005,16 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 4103668181388828736, guid: b51fd4250d9b59b42bedee6251dc24b1,
+        type: 3}
+      propertyPath: QuestIconImage
+      value: 
+      objectReference: {fileID: 1514302646}
+    - target: {fileID: 4103668181388828736, guid: b51fd4250d9b59b42bedee6251dc24b1,
+        type: 3}
+      propertyPath: QuestItemCanvas
+      value: 
+      objectReference: {fileID: 1186433501}
     - target: {fileID: 6956979298746990606, guid: b51fd4250d9b59b42bedee6251dc24b1,
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.x

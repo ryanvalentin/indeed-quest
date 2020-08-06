@@ -37,7 +37,7 @@ public class NPCController : InteractableController
     {
         get
         {
-            return Quest != null && GameController.Instance.ActiveQuest == Quest;
+            return Quest != null && PlayerQuestController.Instance.ActiveQuest == Quest;
         }
     }
 
@@ -52,7 +52,7 @@ public class NPCController : InteractableController
             else if (Inventory.Instance.CurrentItem.Id == Quest.Collectible.Id)
             {
                 GameController.Instance.OnPopupTrigger(Profile.Title, Quest.CompleteText, Profile.Icon, gameObject);
-                GameController.Instance.OnCompleteQuest();
+                PlayerQuestController.Instance.OnCompleteQuest();
             }
             else
             {
@@ -62,13 +62,22 @@ public class NPCController : InteractableController
         else if (HasQuest)
         {
             GameController.Instance.OnQuestPopupTrigger(Profile.Title, Quest.InstructionsText, Profile.Icon, gameObject);
-            GameController.Instance.OnStartQuest(Quest);
+            // If the user accepts the quest, it'll be sent as a message to be received at OnPrimaryDialogueButtonClick();
         }
         else
         {
             var dialogue = CharacterProfile.IdleDialogue[Random.Range(0, CharacterProfile.IdleDialogue.Length)];
 
             GameController.Instance.OnPopupTrigger(Profile.Title, dialogue.Text, Profile.Icon, gameObject);
+        }
+    }
+
+    public void OnPrimaryDialogueButtonClick()
+    {
+        if (HasQuest)
+        {
+            // Player has accepted quest
+            PlayerQuestController.Instance.OnStartQuest(Quest);
         }
     }
 
