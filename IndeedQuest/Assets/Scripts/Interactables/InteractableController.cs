@@ -5,7 +5,6 @@ using UnityEngine.UI;
 /// <summary>
 /// Container for a simple dialogue popup UI item.
 /// </summary>
-[RequireComponent(typeof(Rigidbody))]
 [RequireComponent(typeof(Collider))]
 public class InteractableController : MonoBehaviour
 {

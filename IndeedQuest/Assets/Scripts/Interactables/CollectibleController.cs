@@ -14,6 +14,7 @@ public class CollectibleController : InteractableController
 
     public override void OnInteract()
     {
+        // TODO: Make a popup with a collect option.
         GameController.Instance.OnPopupTrigger(Profile.Title, CollectibleProfile.Description, Profile.Icon);
     }
 
