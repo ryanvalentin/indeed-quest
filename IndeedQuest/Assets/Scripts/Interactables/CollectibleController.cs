@@ -9,7 +9,7 @@ public class CollectibleController : InteractableController
 {
     public bool IsItemTaken { get; private set; } = false;
 
-    private CollectibleProfile CollectibleProfile
+    public CollectibleProfile CollectibleProfile
     {
         get { return Profile as CollectibleProfile; }
     }
@@ -18,9 +18,16 @@ public class CollectibleController : InteractableController
     {
         IsItemTaken = true;
 
-        // TODO: Hide this item
+        gameObject.SetActive(false);
 
-        Inventory.Instance.CurrentItem = CollectibleProfile;
+        Inventory.Instance.OnReceiveItem(this);
+    }
+
+    public void ReturnItem()
+    {
+        IsItemTaken = false;
+
+        gameObject.SetActive(true);
     }
 
     public override void OnInteract()

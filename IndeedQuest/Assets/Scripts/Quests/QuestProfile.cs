@@ -23,6 +23,9 @@ public class QuestProfile : ScriptableObject
     [TextArea(2, 8), Tooltip("What the NPC says when you complete the quest.")]
     public string CompleteText;
 
+    [Tooltip("Whether to give a random start time to this quest.")]
+    public bool RandomizeStartTime = false;
+
     [Range(0f, 28799f), Tooltip("Time in seconds since the start of the day that this quest is triggered")]
     public float StartTime;
 

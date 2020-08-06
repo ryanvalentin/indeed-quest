@@ -119,6 +119,11 @@ public class GameController : MonoBehaviour
         Dialogue.Show(sender, title, description, icon);
     }
 
+    public void OnInventoryTrigger(string title, string description, Sprite icon, GameObject sender)
+    {
+        Dialogue.Show(sender, title, description, icon, "Done", "Drop Item");
+    }
+
     public void OnCollectiblePopupTrigger(string title, string description, Sprite icon, GameObject sender)
     {
         Dialogue.Show(sender, title, description, icon, "Done", "Take");
@@ -186,13 +191,13 @@ public class GameController : MonoBehaviour
 
     private void UpdateScore()
     {
-        ScoreText.text = $"{CurrentScore:N0} people we've helped get jobs";
+        ScoreText.text = $"{CurrentScore:N0}";
     }
 
     private void UpdateGameClock()
     {
         const float timeBase = 32400f; // 9:00 in seconds
-        const float eightHours = timeBase + 28800f; // 8 hours in seconds
+        const float eightHours = timeBase + 28800f; // +8 hours in seconds
 
         float gameTime = timeBase;
         if (GameHasStarted)
