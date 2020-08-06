@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1bb319a217b764c97344e051807a0d, type: 3}
+  m_Name: Dev 4
+  m_EditorClassIdentifier: 
+  Title: Software Engineer
+  Description: I hack things.
+  Icon: {fileID: 21300000, guid: a66122bc9409a4b22a3df7b8f1621b5e, type: 3}
+  MinJobsPerMinute: 0
+  MaxJobsPerMinute: 10
+  IdleDialogue:
+  - Text: Oops! I forgot to update the jira status.
+  - Text: '*sigh* I''m on DFR this week.'
+  - Text: Psst. Just approve my merge request.

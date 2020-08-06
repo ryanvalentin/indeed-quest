@@ -10,14 +10,15 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d1bb319a217b764c97344e051807a0d, type: 3}
-  m_Name: Dev
+  m_Name: PM 4
   m_EditorClassIdentifier: 
-  Title: Dev
-  Description: I hack things.
-  Icon: {fileID: 21300000, guid: 10d9ba11f31da46e8b09913b0c255da7, type: 3}
+  Title: Product Manager
+  Description: I'm a professional. There's nothing I don't know. I'm like a small
+    CEO.
+  Icon: {fileID: 21300000, guid: e2fd102d8431b48a2862377cb5469332, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: Oops! I forgot to update the jira status.
-  - Text: '*sigh* I''m on DFR this week.'
-  - Text: Psst. Just approve my merge request.
+  - Text: I'm very busy right now.
+  - Text: Do you know anything about IQL? No? OK Leave me alone.
+  - Text: I'm running late for standup.

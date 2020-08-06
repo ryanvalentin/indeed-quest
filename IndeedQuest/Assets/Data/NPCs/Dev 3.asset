@@ -10,15 +10,14 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0d1bb319a217b764c97344e051807a0d, type: 3}
-  m_Name: ProductManagerNPCProfile
+  m_Name: Dev 3
   m_EditorClassIdentifier: 
-  Title: Product Manager
-  Description: I'm a professional. There's nothing I don't know. I'm like a small
-    CEO.
-  Icon: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+  Title: Senior Developer
+  Description: I hack things.
+  Icon: {fileID: 21300000, guid: b20b1367219f4414ca05b4587a6d3301, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: I'm very busy right now.
-  - Text: Do you know anything about IQL? No? OK Leave me alone.
-  - Text: I'm running late for standup.
+  - Text: Oops! I forgot to update the jira status.
+  - Text: '*sigh* I''m on DFR this week.'
+  - Text: Psst. Just approve my merge request.
