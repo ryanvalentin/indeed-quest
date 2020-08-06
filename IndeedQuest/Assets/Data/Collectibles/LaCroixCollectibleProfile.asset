@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: La Croix (Pampelmousse)
   Description: A tasty, refreshing treat that is inferior to Spindrift.
-  Icon: {fileID: 10911, guid: 0000000000000000f000000000000000, type: 0}
+  Icon: {fileID: 21300000, guid: e5be8b4c70b72d646a24e47eccb74474, type: 3}
   Id: 8829616a-3300-41a0-bab9-00ace351c976
