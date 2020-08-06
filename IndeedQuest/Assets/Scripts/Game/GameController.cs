@@ -45,6 +45,9 @@ public class GameController : MonoBehaviour
 
     private Dictionary<string, RoomSceneController> _roomReferences;
 
+    //
+    // Public getters
+
     public string LastPortalId { get; private set; }
 
     public bool IsTransitioning { get; private set; }
@@ -111,14 +114,19 @@ public class GameController : MonoBehaviour
         Application.Quit();
     }
 
-    public void OnPopupTrigger(string title, string description, Sprite icon)
+    public void OnPopupTrigger(string title, string description, Sprite icon, GameObject sender)
     {
-        Dialogue.Show(title, description, icon);
+        Dialogue.Show(sender, title, description, icon);
     }
 
-    public void OnQuestPopupTrigger(string title, string description, Sprite icon)
+    public void OnCollectiblePopupTrigger(string title, string description, Sprite icon, GameObject sender)
     {
-        Dialogue.Show(title, description, icon, "Decline", "Accept");
+        Dialogue.Show(sender, title, description, icon, "Done", "Take");
+    }
+
+    public void OnQuestPopupTrigger(string title, string description, Sprite icon, GameObject sender)
+    {
+        Dialogue.Show(sender, title, description, icon, "Decline", "Accept");
     }
 
     /// <summary>
@@ -223,7 +231,7 @@ public class GameController : MonoBehaviour
         Dialogue.OnSecondaryClick.AddListener(ReturnToMenu);
 
         // Show end dialogue.
-        OnPopupTrigger(Profile.PlayerName, gameOverText, Profile.PlayerAvatar);
+        OnPopupTrigger(Profile.PlayerName, gameOverText, Profile.PlayerAvatar, gameObject);
     }
 
     private IEnumerator RunLoadStartRoutine()
@@ -270,7 +278,7 @@ public class GameController : MonoBehaviour
         yield return RunFadeScreenRoutine(Profile.GameFadeTimeSeconds, 0f, Profile.GameFadeTimeSeconds);
 
         // Lastly show the instruction
-        OnPopupTrigger(Profile.PlayerName, Profile.IntroductionText, Profile.PlayerAvatar);
+        OnPopupTrigger(Profile.PlayerName, Profile.IntroductionText, Profile.PlayerAvatar, gameObject);
 
         GameHasStarted = true;
     }

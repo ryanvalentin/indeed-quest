@@ -7,15 +7,30 @@ using UnityEngine;
 
 public class CollectibleController : InteractableController
 {
+    public bool IsItemTaken { get; private set; } = false;
+
     private CollectibleProfile CollectibleProfile
     {
         get { return Profile as CollectibleProfile; }
     }
 
+    public void TakeItem()
+    {
+        IsItemTaken = true;
+
+        // TODO: Hide this item
+
+        Inventory.Instance.CurrentItem = CollectibleProfile;
+    }
+
     public override void OnInteract()
     {
-        // TODO: Make a popup with a collect option.
-        GameController.Instance.OnPopupTrigger(Profile.Title, CollectibleProfile.Description, Profile.Icon);
+        GameController.Instance.OnCollectiblePopupTrigger(Profile.Title, CollectibleProfile.Description, Profile.Icon, gameObject);
+    }
+
+    public void OnPrimaryDialogueButtonClick()
+    {
+        TakeItem();
     }
 
 #if UNITY_EDITOR

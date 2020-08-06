@@ -14,7 +14,7 @@ public class InteractableController : MonoBehaviour
 
     public virtual void OnInteract()
     {
-        GameController.Instance.OnPopupTrigger(Profile.Title, Profile.Description, Profile.Icon);
+        GameController.Instance.OnPopupTrigger(Profile.Title, Profile.Description, Profile.Icon, gameObject);
     }
 
     private void OnEnable()
