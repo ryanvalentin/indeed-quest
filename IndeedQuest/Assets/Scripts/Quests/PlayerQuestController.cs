@@ -14,8 +14,6 @@ public class PlayerQuestController : MonoBehaviour
     [SerializeField]
     private QuestProfile _activeQuest;
 
-    private NPCController _originalController;
-
     public Canvas QuestItemCanvas;
 
     public Image QuestIconImage;
