@@ -21,8 +21,21 @@ MonoBehaviour:
   PlayerMoveSpeed: 2
   RandomQuests:
   - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
   IntroductionText: "First day on the job at Indeed! As they say \"We help people
     get jobs\", but I'm here to help the people helping people get jobs! \n\nTime
     to start our day and see what everyone needs to stay happy and productive..."
-  EndResults: []
+  EndResults:
+  - ScoreCondition:
+      Comparison: 0
+      Value: 0
+    GameOverText: 
   DefaultGameOverText: What a first day! I hope we did alright...

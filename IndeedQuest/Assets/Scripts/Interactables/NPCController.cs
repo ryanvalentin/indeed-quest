@@ -37,7 +37,7 @@ public class NPCController : InteractableController
     {
         get
         {
-            return GameController.Instance.ActiveQuest == Quest;
+            return Quest != null && GameController.Instance.ActiveQuest == Quest;
         }
     }
 
@@ -47,28 +47,28 @@ public class NPCController : InteractableController
         {
             if (Inventory.Instance.CurrentItem == null)
             {
-                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.QuestIncompleteText[Random.Range(0, Quest.QuestIncompleteText.Length)], Profile.Icon);
+                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.QuestIncompleteText[Random.Range(0, Quest.QuestIncompleteText.Length)], Profile.Icon, gameObject);
             }
             else if (Inventory.Instance.CurrentItem.Id == Quest.Collectible.Id)
             {
-                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.CompleteText, Profile.Icon);
+                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.CompleteText, Profile.Icon, gameObject);
                 GameController.Instance.OnCompleteQuest();
             }
             else
             {
-                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.WrongItemText, Profile.Icon);
+                GameController.Instance.OnPopupTrigger(Profile.Title, Quest.WrongItemText, Profile.Icon, gameObject);
             }
         }
         else if (HasQuest)
         {
-            GameController.Instance.OnQuestPopupTrigger(Profile.Title, Quest.InstructionsText, Profile.Icon);
+            GameController.Instance.OnQuestPopupTrigger(Profile.Title, Quest.InstructionsText, Profile.Icon, gameObject);
             GameController.Instance.OnStartQuest(Quest);
         }
         else
         {
             var dialogue = CharacterProfile.IdleDialogue[Random.Range(0, CharacterProfile.IdleDialogue.Length)];
 
-            GameController.Instance.OnPopupTrigger(Profile.Title, dialogue.Text, Profile.Icon);
+            GameController.Instance.OnPopupTrigger(Profile.Title, dialogue.Text, Profile.Icon, gameObject);
         }
     }
 

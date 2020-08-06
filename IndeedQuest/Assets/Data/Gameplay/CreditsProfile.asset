@@ -17,30 +17,38 @@ MonoBehaviour:
   VoteLink: https://indeedigloo.com/life_at_indeed~2/innovation/hackathon~2
   Credits:
   - Name: Ellie Xu
-    Avatar: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+    Avatar: {fileID: 21300000, guid: 8c1a1c8d5533f78439a97d8056b9cfa6, type: 3}
     Role: Artist
     Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
   - Name: Dan Tilden
-    Avatar: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+    Avatar: {fileID: 21300000, guid: 71c8d922338f9a2418d8f30ee3761fdb, type: 3}
     Role: Game Designer
     Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
   - Name: Ryan Valentin
-    Avatar: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+    Avatar: {fileID: 21300000, guid: 23c11d6ce663a894a978b398b60b2c88, type: 3}
     Role: Engineer
     Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
   - Name: Jianzheng Huang
-    Avatar: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+    Avatar: {fileID: 21300000, guid: 98bec57fc5fdfb843b0e92a454b8b01f, type: 3}
     Role: Engineer
     Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
   - Name: Heidi Narasaki
-    Avatar: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+    Avatar: {fileID: 21300000, guid: 454e3ad94f8b3844396969efca707b2f, type: 3}
     Role: Artist
     Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
   - Name: Joel Matsumoto
-    Avatar: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+    Avatar: {fileID: 21300000, guid: a97480368a395ba4e87ee08378206ea1, type: 3}
     Role: Artist
     Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
   - Name: Yuridia Larios-Aispuro
-    Avatar: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+    Avatar: {fileID: 21300000, guid: 0f6d8e2ec5b3d1c40a1ba8658155cb53, type: 3}
+    Role: Artist
+    Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
+  - Name: Zach Baker
+    Avatar: {fileID: 21300000, guid: 50e4fa07204008e45a84ab50d6d2e63c, type: 3}
+    Role: Artist
+    Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
+  - Name: Dalrae Kim
+    Avatar: {fileID: 21300000, guid: e914f0099b7f7fe47bdb7088c59faafb, type: 3}
     Role: Artist
     Gameplay: {fileID: 11400000, guid: 1a20c137dbfab2e458d4d72b384368d0, type: 2}
