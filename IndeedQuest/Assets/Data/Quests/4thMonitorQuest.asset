@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa6420097d4e75458a2d3acfcb73b8b, type: 3}
+  m_Name: 4thMonitorQuest
+  m_EditorClassIdentifier: 
+  Name: Fetch a 4th monitor (without the 4th monitor)
+  InstructionsText: "I need four monitors, without the fourth monitor, i can\u2019t
+    see the code! I\u2019ts impossible. I can\u2019t work. If only there were some
+    kind of person who handled requests like that. If only!"
+  WrongItemText: Yeah no. I need four monitors, without the fourth monitor.
+  QuestIncompleteText:
+  - '*Recompiles*'
+  - '*Types loudly*'
+  CompleteText: Huh. Turns out, I only wanted 3 monitors after all!
+  RandomizeStartTime: 0
+  StartTime: 0
+  Collectible: {fileID: 11400000, guid: 79fac36dd1587114aa29027c397a4b8a, type: 2}
+  IsComplete: 0
+  Owner: {fileID: 0}
