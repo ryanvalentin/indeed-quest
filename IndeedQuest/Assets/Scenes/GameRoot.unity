@@ -1719,7 +1719,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1550169242}
         m_MethodName: ShowCurrentItem
         m_Mode: 1
         m_Arguments:
@@ -2966,7 +2966,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 0}
+      - m_Target: {fileID: 1550169243}
         m_MethodName: ShowActiveQuest
         m_Mode: 1
         m_Arguments:
