@@ -758,7 +758,7 @@ MonoBehaviour:
   WorldSpaceCanvas: {fileID: 1219429887}
   Profile: {fileID: 11400000, guid: c7b3ac661067443d0b8e60435b30e83b, type: 2}
   InteractImage: {fileID: 65084958}
-  Quest: {fileID: 0}
+  Quest: {fileID: 11400000, guid: d3b02c7444c8c4368ad8ad92ee082570, type: 2}
   ReportingIntervalMinimum: 2
   ReportingIntervalMaxiumum: 10
 --- !u!136 &140472931
@@ -3083,7 +3083,7 @@ MonoBehaviour:
   WorldSpaceCanvas: {fileID: 963413855}
   Profile: {fileID: 11400000, guid: 1485da494957f448b94530cb68427d08, type: 2}
   InteractImage: {fileID: 2139294307}
-  Quest: {fileID: 0}
+  Quest: {fileID: 11400000, guid: 4ab536d2bdf0a4ea9a98219e7595e57e, type: 2}
   ReportingIntervalMinimum: 2
   ReportingIntervalMaxiumum: 10
 --- !u!136 &620467547

@@ -25,7 +25,7 @@ MonoBehaviour:
   CompleteText: At last! With this, I'll be able to eat all the snacks I want! Thank
     you so much!
   RandomizeStartTime: 0
-  StartTime: 24359
+  StartTime: 0
   Collectible: {fileID: 11400000, guid: 8ddcdee461b4f384488d4459c171fbb7, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}
