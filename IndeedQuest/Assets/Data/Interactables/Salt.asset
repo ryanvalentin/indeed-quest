@@ -10,8 +10,8 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 38354293dbdee384abc526742b782e91, type: 3}
-  m_Name: IndeedSignInteractableProfile
+  m_Name: Salt
   m_EditorClassIdentifier: 
-  Title: Indeed Sign
-  Description: Looks like I'm in the right place.
-  Icon: {fileID: 21300000, guid: abcae4a873326a24796161119a27cd4d, type: 3}
+  Title: Salt
+  Description: The salty half of a good pair of seasonings.
+  Icon: {fileID: 0}
