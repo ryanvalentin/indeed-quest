@@ -74,6 +74,8 @@ public class NPCController : InteractableController
             {
                 GameController.Instance.OnPopupTrigger(Profile.Title, Quest.CompleteText, Profile.Icon, gameObject);
                 PlayerQuestController.Instance.OnCompleteQuest();
+                Quest.IsComplete = true;
+                _showAlertPermanently = false;
             }
             else
             {
@@ -83,6 +85,7 @@ public class NPCController : InteractableController
         else if (HasQuest)
         {
             GameController.Instance.OnQuestPopupTrigger(Profile.Title, Quest.InstructionsText, Profile.Icon, gameObject);
+
             // If the user accepts the quest, it'll be sent as a message to be received at OnPrimaryDialogueButtonClick();
         }
         else
@@ -111,7 +114,7 @@ public class NPCController : InteractableController
             Quest = Instantiate(Quest);
             Quest.IsComplete = false;
             Quest.Owner = this;
-        }        
+        }
 
         GameController.Instance.RegisterNPC(this);
         StartCoroutine(RunContributeScoreRoutine());
@@ -123,6 +126,14 @@ public class NPCController : InteractableController
 
         while (true)
         {
+            if (HasQuest && !WorldSpaceCanvas.isActiveAndEnabled)
+            {
+                _showAlertPermanently = true;
+
+                // If the NPC has a quest, make their bubble permanent. This won't make the button active, it'll require a trigger.
+                OnUpdateInteractButton();
+            }
+
             if (HasQuest && !IsQuestActive)
                 _currentProductivity = Random.Range(0f, 0.1f);
             else

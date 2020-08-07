@@ -54,6 +54,8 @@ public class GameController : MonoBehaviour
 
     private Dictionary<string, RoomSceneController> _roomReferences;
 
+    private Dictionary<string, List<CollectibleController>> _collectibleReferences;
+
     //
     // Public getters
 
@@ -154,6 +156,16 @@ public class GameController : MonoBehaviour
             _roomReferences.Add(sceneName, controller);
     }
 
+    public void RegisterCollectible(CollectibleController controller)
+    {
+        var controllerGameObject = controller.gameObject;
+        string sceneName = controllerGameObject.scene.name;
+        if (!_collectibleReferences.ContainsKey(sceneName))
+            _collectibleReferences.Add(sceneName, new List<CollectibleController>());
+
+        _collectibleReferences[sceneName].Add(controller);
+    }
+
     private void Start()
     {
         Instance = this;
@@ -195,6 +207,10 @@ public class GameController : MonoBehaviour
         yield return new WaitForEndOfFrame();
 
         // TODO: Determine the number of random quests to assign and pick a random NPC to assign it to.
+
+        // First we need to find out how many random quests we need to assign and take a random number of NPCs from that list
+
+        // TODO: Audit the quest to make sure its collectible exists in the scene, or else skip it.
     }
 
     private void ConfigurePlayer()
@@ -255,6 +271,7 @@ public class GameController : MonoBehaviour
     {
         _npcReferences = new Dictionary<string, List<NPCController>>();
         _roomReferences = new Dictionary<string, RoomSceneController>();
+        _collectibleReferences = new Dictionary<string, List<CollectibleController>>();
 
         // Put up our black canvas.
         FadeCanvas.gameObject.SetActive(true);

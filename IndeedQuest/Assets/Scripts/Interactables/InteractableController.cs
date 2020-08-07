@@ -8,6 +8,10 @@ using UnityEngine.UI;
 [RequireComponent(typeof(Collider))]
 public class InteractableController : MonoBehaviour
 {
+    protected bool _playerIsColliding = false;
+    protected bool _showAlertPermanently = false;
+    protected Button _interactButton;
+
     public Canvas WorldSpaceCanvas;
 
     public InteractableProfile Profile;
@@ -30,21 +34,38 @@ public class InteractableController : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
-        var sprite = GetInteractionSprite();
+        _playerIsColliding = true;
 
-        if (sprite && InteractImage)
-            InteractImage.sprite = sprite;
-
-        WorldSpaceCanvas.gameObject.SetActive(true);
+        OnUpdateInteractButton();
     }
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        WorldSpaceCanvas.gameObject.SetActive(false);
+        _playerIsColliding = false;
+
+        OnUpdateInteractButton();
     }
 
     protected virtual Sprite GetInteractionSprite()
     {
         return null;
+    }
+
+    protected void OnUpdateInteractButton()
+    {
+        _interactButton = WorldSpaceCanvas.GetComponentInChildren<Button>();
+        var imageColor = InteractImage.color;
+        var sprite = GetInteractionSprite();
+
+        if (sprite && InteractImage)
+            InteractImage.sprite = sprite;
+
+        WorldSpaceCanvas.gameObject.SetActive(_playerIsColliding || _showAlertPermanently);
+
+        if (_interactButton)
+            _interactButton.interactable = _playerIsColliding;
+
+        InteractImage.color = new Color(imageColor.r, imageColor.g, imageColor.b, _playerIsColliding ? 1f : 0.5f);
+
     }
 }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using UnityEngine;
+﻿using UnityEngine;
 
 public class CollectibleController : InteractableController
 {
@@ -38,6 +33,11 @@ public class CollectibleController : InteractableController
     public void OnPrimaryDialogueButtonClick()
     {
         TakeItem();
+    }
+
+    private void Start()
+    {
+        GameController.Instance.RegisterCollectible(this);
     }
 
 #if UNITY_EDITOR
