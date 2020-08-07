@@ -20,7 +20,7 @@ MonoBehaviour:
     lost Ark of the Covenant but no box of meat*'
   CompleteText: Yes! We can now have lunch and an afternoon will follow!
   RandomizeStartTime: 0
-  StartTime: 0
+  StartTime: 14360
   Collectible: {fileID: 11400000, guid: 87a08546cb6e54d2d91b5ab47899ecc9, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

@@ -36,9 +36,10 @@ p {
 
 .instructions {
  font-family: 'Russo One', sans-serif;
- background-color: gray;
+ background-color: darkblue;
  padding: 20px;
  margin-top: 50px;
+ margin-bottom: 100px;
  color: white;
 }
 
