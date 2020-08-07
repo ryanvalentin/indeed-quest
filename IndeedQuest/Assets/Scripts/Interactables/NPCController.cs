@@ -50,7 +50,7 @@ public class NPCController : InteractableController
             if (Quest.IsComplete)
                 return false;
 
-            return GameController.Instance.TimeSinceStart >= Quest.StartTime; 
+            return GameController.Instance.ScaledGameTime >= Quest.StartTime + GameController.START_TIME; 
         }
     }
 

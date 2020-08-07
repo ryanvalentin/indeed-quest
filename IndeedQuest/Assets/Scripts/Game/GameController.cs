@@ -3,8 +3,6 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
-using UnityEngine.Audio;
-using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
@@ -14,6 +12,10 @@ public class GameController : MonoBehaviour
     // Static
 
     public static GameController Instance;
+
+    public const float DAY_LENGTH = 28800f;
+    public const float START_TIME = 32400f; // 9:00 in seconds
+    public const float END_TIME = START_TIME + DAY_LENGTH; // +8 hours in seconds
 
     //
     // Properties
@@ -42,19 +44,21 @@ public class GameController : MonoBehaviour
 
     public AudioSource EffectsSource;
 
+    [SerializeField]
+    private float _timeSinceStart;
+
     //
     // Private variables
 
-    private const float START_TIME = 32400f; // 9:00 in seconds
-    private const float END_TIME = START_TIME + 28800f; // +8 hours in seconds
-
     private Scene _currentRoomScene;
 
-    private Dictionary<string, List<NPCController>> _npcReferences;
+    private Dictionary<string, List<NPCController>> _npcReferences = new Dictionary<string, List<NPCController>>();
+    private List<NPCController> _allNPCs = new List<NPCController>();
 
-    private Dictionary<string, RoomSceneController> _roomReferences;
+    private Dictionary<string, RoomSceneController> _roomReferences = new Dictionary<string, RoomSceneController>();
 
-    private Dictionary<string, List<CollectibleController>> _collectibleReferences;
+    private Dictionary<string, List<CollectibleController>> _collectibleReferences = new Dictionary<string, List<CollectibleController>>();
+    private List<CollectibleController> _allCollectibles = new List<CollectibleController>();
 
     //
     // Public getters
@@ -63,7 +67,13 @@ public class GameController : MonoBehaviour
 
     public bool IsTransitioning { get; private set; }
 
-    public float TimeSinceStart { get; private set; } = 0f;
+    public float TimeSinceStart
+    {
+        get { return _timeSinceStart; }
+        private set { _timeSinceStart = value; }
+    }
+
+    public float ScaledGameTime { get; private set; }
 
     public int CurrentScore { get; private set; } = 0;
 
@@ -146,6 +156,7 @@ public class GameController : MonoBehaviour
             _npcReferences.Add(sceneName, new List<NPCController>());
         
         _npcReferences[sceneName].Add(controller);
+        _allNPCs.Add(controller);
     }
 
     public void RegisterRoom(RoomSceneController controller)
@@ -164,6 +175,7 @@ public class GameController : MonoBehaviour
             _collectibleReferences.Add(sceneName, new List<CollectibleController>());
 
         _collectibleReferences[sceneName].Add(controller);
+        _allCollectibles.Add(controller);
     }
 
     private void Start()
@@ -186,7 +198,7 @@ public class GameController : MonoBehaviour
     private void UpdateSkybox()
     {
         // Change color of the skybox over time.
-        float normalizedTime = Normalize(_gameTime, START_TIME, END_TIME);
+        float normalizedTime = Normalize(ScaledGameTime, START_TIME, END_TIME);
         Color newColor = SkyGradientOverTime.Evaluate(normalizedTime);
         RenderSettings.skybox.SetColor("_Tint", newColor);
     }
@@ -206,11 +218,34 @@ public class GameController : MonoBehaviour
         // Wait a moment for all NPCs to be registered before we determine their quests.
         yield return new WaitForEndOfFrame();
 
-        // TODO: Determine the number of random quests to assign and pick a random NPC to assign it to.
+        // Get list of random quests to assign.
+        var questsToAssign = Profile.RandomQuests.Where(q => q != default).ToArray();
 
-        // First we need to find out how many random quests we need to assign and take a random number of NPCs from that list
+        // Randomize the list of NPCs who don't have a permanent quest and take the number of quests to assign.
+        var rand = new System.Random();
+        var chosenNPCs = _allNPCs
+            .Where(n => n.Quest == default)
+            .OrderBy(x => rand.Next())
+            .Take(questsToAssign.Length)
+            .ToArray();
 
-        // TODO: Audit the quest to make sure its collectible exists in the scene, or else skip it.
+        float questIntervals = DAY_LENGTH / questsToAssign.Length;
+        for (int i = 0; i < chosenNPCs.Length; i++)
+        {
+            var questCopy = Instantiate(questsToAssign[i]);
+
+            // Set a random time to trigger it within a random time within the bucket of the day.
+            float lowerTimeRange = questIntervals * i;
+            float upperTimeRange = lowerTimeRange + questIntervals;
+            float triggerTime = UnityEngine.Random.Range(lowerTimeRange, upperTimeRange);
+            questCopy.StartTime = triggerTime;
+
+            questCopy.IsComplete = false;
+            questCopy.Owner = chosenNPCs[i];
+            chosenNPCs[i].Quest = questCopy;
+
+            Debug.Log($"Assigned NPC \"{chosenNPCs[i].name}\" the quest \"{questCopy.Name}\" to be triggered at {questCopy.StartTime}");
+        }
     }
 
     private void ConfigurePlayer()
@@ -223,24 +258,22 @@ public class GameController : MonoBehaviour
         ScoreText.text = $"{CurrentScore:N0}";
     }
 
-    private float _gameTime;
-
     private void UpdateGameClock()
     {        
-        _gameTime = START_TIME;
+        ScaledGameTime = START_TIME;
         if (GameHasStarted)
         {
             // Only start ticking time when the player has started the game.
 
             TimeSinceStart += Time.deltaTime;
 
-            _gameTime += (TimeSinceStart * Profile.TimeScale);
+            ScaledGameTime += (TimeSinceStart * Profile.TimeScale);
 
-            if (_gameTime > END_TIME)
+            if (ScaledGameTime > END_TIME)
                 EndGame();
         }
 
-        TimeSpan ts = TimeSpan.FromSeconds(_gameTime);
+        TimeSpan ts = TimeSpan.FromSeconds(ScaledGameTime);
         TimeText.text = $"{new DateTime(2020, 01, 01, ts.Hours, ts.Minutes, ts.Seconds):hh:mm tt}";
     }
 
@@ -269,10 +302,6 @@ public class GameController : MonoBehaviour
 
     private IEnumerator RunLoadStartRoutine()
     {
-        _npcReferences = new Dictionary<string, List<NPCController>>();
-        _roomReferences = new Dictionary<string, RoomSceneController>();
-        _collectibleReferences = new Dictionary<string, List<CollectibleController>>();
-
         // Put up our black canvas.
         FadeCanvas.gameObject.SetActive(true);
         FadeCanvas.alpha = 1f;
