@@ -35,8 +35,10 @@ public class CollectibleController : InteractableController
         TakeItem();
     }
 
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         GameController.Instance.RegisterCollectible(this);
     }
 

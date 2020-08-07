@@ -26,24 +26,35 @@ public class InteractableController : MonoBehaviour
 
     private void OnEnable()
     {
-        WorldSpaceCanvas.gameObject.SetActive(false);
+        WorldSpaceCanvas.enabled = false;
 
         if (!WorldSpaceCanvas.worldCamera)
             WorldSpaceCanvas.worldCamera = Camera.main;
     }
 
+    protected virtual void Start()
+    {
+        OnUpdateInteractButton();
+    }
+
     protected virtual void OnTriggerEnter(Collider other)
     {
-        _playerIsColliding = true;
+        if (other.CompareTag("Player"))
+        {
+            _playerIsColliding = true;
 
-        OnUpdateInteractButton();
+            OnUpdateInteractButton();
+        }
     }
 
     protected virtual void OnTriggerExit(Collider other)
     {
-        _playerIsColliding = false;
+        if (other.CompareTag("Player"))
+        {
+            _playerIsColliding = false;
 
-        OnUpdateInteractButton();
+            OnUpdateInteractButton();
+        }
     }
 
     protected virtual Sprite GetInteractionSprite()
@@ -60,7 +71,7 @@ public class InteractableController : MonoBehaviour
         if (sprite && InteractImage)
             InteractImage.sprite = sprite;
 
-        WorldSpaceCanvas.gameObject.SetActive(_playerIsColliding || _showAlertPermanently);
+        WorldSpaceCanvas.enabled = _playerIsColliding || _showAlertPermanently;
 
         if (_interactButton)
             _interactButton.interactable = _playerIsColliding;

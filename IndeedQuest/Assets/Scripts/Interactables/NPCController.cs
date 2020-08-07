@@ -106,8 +106,10 @@ public class NPCController : InteractableController
     }
 
     // Start is called before the first frame update
-    private void Start()
+    protected override void Start()
     {
+        base.Start();
+
         // Clone the Quest so we don't modify original file in play mode.
         if (Quest != null)
         {
@@ -126,11 +128,16 @@ public class NPCController : InteractableController
 
         while (true)
         {
-            if (HasQuest && !WorldSpaceCanvas.isActiveAndEnabled)
+            if (HasQuest && !WorldSpaceCanvas.enabled)
             {
                 _showAlertPermanently = true;
 
                 // If the NPC has a quest, make their bubble permanent. This won't make the button active, it'll require a trigger.
+                OnUpdateInteractButton();
+            }
+            else if (!HasQuest)
+            {
+                _showAlertPermanently = false;
                 OnUpdateInteractButton();
             }
 
