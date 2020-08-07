@@ -38,7 +38,7 @@ public class MainMenuController : MonoBehaviour
 
     public void ShowAbout()
     {
-
+        Application.OpenURL("https://wiki.indeed.com/pages/viewpage.action?spaceKey=HACK&title=IndeedQuest%3A+Back+to+Work");
     }
 
     public void ExitGame()
