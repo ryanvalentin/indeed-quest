@@ -12,6 +12,9 @@ public class InteractableController : MonoBehaviour
 
     public InteractableProfile Profile;
 
+    [Tooltip("The image where the interact icon appears.")]
+    public Image InteractImage;
+
     public virtual void OnInteract()
     {
         GameController.Instance.OnPopupTrigger(Profile.Title, Profile.Description, Profile.Icon, gameObject);
@@ -27,11 +30,21 @@ public class InteractableController : MonoBehaviour
 
     protected virtual void OnTriggerEnter(Collider other)
     {
+        var sprite = GetInteractionSprite();
+
+        if (sprite && InteractImage)
+            InteractImage.sprite = sprite;
+
         WorldSpaceCanvas.gameObject.SetActive(true);
     }
 
     protected virtual void OnTriggerExit(Collider other)
     {
         WorldSpaceCanvas.gameObject.SetActive(false);
+    }
+
+    protected virtual Sprite GetInteractionSprite()
+    {
+        return null;
     }
 }

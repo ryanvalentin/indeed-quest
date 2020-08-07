@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: DefaultGameplayProfile
   m_EditorClassIdentifier: 
   Mixer: {fileID: 24100000, guid: bb4a05b38807c864ebf747964187d8b5, type: 2}
+  MusicLoop: {fileID: 8300000, guid: d4d30a6912389ce498c67b41ed619aa6, type: 3}
   TimeScale: 60
   GameFadeTimeSeconds: 1
   SceneTransitionTimeSeconds: 0.2
@@ -20,16 +21,20 @@ MonoBehaviour:
   PlayerAvatar: {fileID: 21300000, guid: 16129063b7c56ef428681b6f520fc8cb, type: 3}
   PlayerMoveSpeed: 2
   RandomQuests:
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
-  - {fileID: 11400000, guid: 56a92ba2c1f77d44988cde1ef9136e70, type: 2}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  - {fileID: 0}
+  NPCIdleSprite: {fileID: 21300000, guid: 8b14b2ed30c9d7c468592d9b31bca655, type: 3}
+  NPCHasQuestSprite: {fileID: 21300000, guid: dc2653e00271ffd499446e68976ff92d, type: 3}
+  NPCAwaitingQuestSprite: {fileID: 21300000, guid: e6752e4fc4f19ee488a40f9f867ff8b9,
+    type: 3}
   IntroductionText: "First day on the job at Indeed! As they say \"We help people
     get jobs\", but I'm here to help the people helping people get jobs! \n\nTime
     to start our day and see what everyone needs to stay happy and productive..."

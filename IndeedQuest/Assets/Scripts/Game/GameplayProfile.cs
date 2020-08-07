@@ -9,10 +9,13 @@ using static ComparisonExtensions;
 [CreateAssetMenu(fileName = "NewGameplayProfile", menuName = "Indeed/Gameplay Profile", order = 1)]
 public class GameplayProfile : ScriptableObject
 {
-    [Header("References")]
+    [Header("Music")]
 
     [Tooltip("The audio mixer to use. You can create a custom mixer to apply random sound effects.")]
     public AudioMixer Mixer;
+
+    [Tooltip("The main music loop to play during the game.")]
+    public AudioClip MusicLoop;
 
     [Header("Time")]
 
@@ -40,6 +43,12 @@ public class GameplayProfile : ScriptableObject
 
     [Tooltip("Pool of quests which are assigned randomly to NPCs without a specific quest.")]
     public QuestProfile[] RandomQuests;
+
+    public Sprite NPCIdleSprite;
+
+    public Sprite NPCHasQuestSprite;
+
+    public Sprite NPCAwaitingQuestSprite;
 
     [Header("Narrations")]
 

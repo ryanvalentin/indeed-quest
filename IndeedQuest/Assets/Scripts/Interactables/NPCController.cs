@@ -1,9 +1,17 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class NPCController : InteractableController
 {
+    public enum NPCState
+    {
+        Idle,
+        HasQuest,
+        AwaitingQuest,
+    }
+
     private float _currentProductivity;
 
     public QuestProfile Quest = null;
@@ -13,6 +21,19 @@ public class NPCController : InteractableController
 
     [Min(1f), Tooltip("The maximum amount of time before calculating new jobs for the score.")]
     public float ReportingIntervalMaxiumum = 10f;
+
+    public NPCState CurrentState
+    {
+        get
+        {
+            if (IsQuestActive)
+                return NPCState.AwaitingQuest;
+            else if (HasQuest)
+                return NPCState.HasQuest;
+
+            return NPCState.Idle;
+        }
+    }
 
     private NPCProfile CharacterProfile
     {
@@ -132,5 +153,20 @@ public class NPCController : InteractableController
     protected override void OnTriggerExit(Collider other)
     {
         base.OnTriggerExit(other);
+    }
+
+    protected override Sprite GetInteractionSprite()
+    {
+        switch (CurrentState)
+        {
+            case NPCState.AwaitingQuest:
+                return GameController.Instance.Profile.NPCAwaitingQuestSprite;
+            case NPCState.HasQuest:
+                return GameController.Instance.Profile.NPCHasQuestSprite;
+            case NPCState.Idle:
+            default:
+                return GameController.Instance.Profile.NPCIdleSprite;
+
+        }
     }
 }

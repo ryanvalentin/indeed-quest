@@ -38,6 +38,10 @@ public class GameController : MonoBehaviour
 
     public Gradient SkyGradientOverTime;
 
+    public AudioSource MusicSource;
+
+    public AudioSource EffectsSource;
+
     //
     // Private variables
 
@@ -290,6 +294,14 @@ public class GameController : MonoBehaviour
         // Now reveal the scene.
         yield return RunFadeScreenRoutine(Profile.GameFadeTimeSeconds, 0f, Profile.GameFadeTimeSeconds);
 
+        if (Profile.Mixer != default)
+            Profile.Mixer.SetFloat("MasterVolume", 1f.ToNormalizedVolume());
+
+        // Play the music
+        MusicSource.loop = true;
+        MusicSource.clip = Profile.MusicLoop;
+        MusicSource.Play();
+
         // Lastly show the instruction
         OnPopupTrigger(Profile.PlayerName, Profile.IntroductionText, Profile.PlayerAvatar, gameObject);
 
@@ -355,10 +367,6 @@ public class GameController : MonoBehaviour
             currentTime += Time.unscaledDeltaTime;
             float newAlpha = Mathf.Lerp(startAlpha, targetAlpha, currentTime / fadeTimeSeconds);
             FadeCanvas.alpha = newAlpha;
-
-            // Also fade audio (this is the inverted value).
-            if (Profile.Mixer != default)
-                Profile.Mixer.SetFloat("MasterVolume", (1f - newAlpha).ToNormalizedVolume());
 
             yield return null;
         }
