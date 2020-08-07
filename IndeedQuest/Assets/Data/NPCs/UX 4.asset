@@ -18,6 +18,6 @@ MonoBehaviour:
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: When in doubt, refer to the ICL.
-  - Text: That looks off by one pixel. REDO!
-  - Text: I'm sad our design jam budget was cut. I wanted to visit Tokyo!
+  - Text: Material Design all the things!
+  - Text: '*Looking at google calander deeply in thought*'
+  - Text: Sketch or Figma, which one do you prefer?

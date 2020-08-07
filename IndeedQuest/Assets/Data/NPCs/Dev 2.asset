@@ -21,3 +21,4 @@ MonoBehaviour:
   - Text: Oops! I forgot to update the jira status.
   - Text: '*sigh* I''m on DFR this week.'
   - Text: Psst. Just approve my merge request.
+  - Text: '*git push origin master --force --no-verify*'

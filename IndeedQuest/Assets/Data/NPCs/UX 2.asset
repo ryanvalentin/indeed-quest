@@ -18,6 +18,6 @@ MonoBehaviour:
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: When in doubt, refer to the ICL.
-  - Text: That looks off by one pixel. REDO!
-  - Text: I'm sad our design jam budget was cut. I wanted to visit Tokyo!
+  - Text: Can you believe it? The devs ruined my design again!
+  - Text: What? It doesn't pass accessibility? Okay, let me work on it again.
+  - Text: But it looks fine on MY screen...

@@ -18,6 +18,8 @@ MonoBehaviour:
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: Oops! I forgot to update the jira status.
-  - Text: '*sigh* I''m on DFR this week.'
-  - Text: Psst. Just approve my merge request.
+  - Text: '"To be or not to be! That is the question!" Hmm...I don''t think that
+      line will work for the new CTA...'
+  - Text: Can we write all the copy in Iambic Pentameter?
+  - Text: They said my text was too long when translated to Hungarian! Unbelievable!
+  - Text: Verbing all the nouns requires coffeing.

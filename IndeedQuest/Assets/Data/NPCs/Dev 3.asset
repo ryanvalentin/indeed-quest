@@ -18,6 +18,7 @@ MonoBehaviour:
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: Oops! I forgot to update the jira status.
-  - Text: '*sigh* I''m on DFR this week.'
-  - Text: Psst. Just approve my merge request.
+  - Text: Why HOBO, WHY?
+  - Text: 'I need to write this technical design doc. Who knew I would have to write
+      so much? '
+  - Text: Don't merge anything right now, I'm refactoring.

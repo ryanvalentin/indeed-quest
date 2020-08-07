@@ -12,12 +12,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1bb319a217b764c97344e051807a0d, type: 3}
   m_Name: Dev 4
   m_EditorClassIdentifier: 
-  Title: Software Engineer
+  Title: Engineering Manager
   Description: I hack things.
   Icon: {fileID: 21300000, guid: a66122bc9409a4b22a3df7b8f1621b5e, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: Oops! I forgot to update the jira status.
-  - Text: '*sigh* I''m on DFR this week.'
-  - Text: Psst. Just approve my merge request.
+  - Text: We need more IMPACT!
+  - Text: Can't talk now, we need to groom the backlog.
+  - Text: Where is your IMPACT? I need you to level up ASAP!

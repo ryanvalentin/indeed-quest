@@ -15,10 +15,11 @@ MonoBehaviour:
   Title: Product Manager
   Description: I'm a professional. There's nothing I don't know. I'm like a small
     CEO.
-  Icon: {fileID: 21300000, guid: ef2272b87e62c454594fd8e61e3b7819, type: 3}
+  Icon: {fileID: 21300000, guid: e2fd102d8431b48a2862377cb5469332, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: I'm very busy right now.
-  - Text: Do you know anything about IQL? No? OK Leave me alone.
-  - Text: I'm running late for standup.
+  - Text: Loupe loupe loupe
+  - Text: I don't actually do any work here. I just tell devs what to do.
+  - Text: You should write me some peer feedback about how great I am.
+  - Text: Who's your favorite PM? C'mon, you can tell me.

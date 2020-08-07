@@ -18,6 +18,7 @@ MonoBehaviour:
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: When in doubt, refer to the ICL.
-  - Text: That looks off by one pixel. REDO!
-  - Text: I'm sad our design jam budget was cut. I wanted to visit Tokyo!
+  - Text: My neck is getting sore, I should take a break soon.
+  - Text: Hmmm, what should I eat for dinner?
+  - Text: Hmmm, what's for lunch tomorrow?
+  - Text: Good time for a walk outside.

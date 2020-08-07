@@ -18,6 +18,7 @@ MonoBehaviour:
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: Oops! I forgot to update the jira status.
-  - Text: '*sigh* I''m on DFR this week.'
-  - Text: Psst. Just approve my merge request.
+  - Text: '"Two roads diverged in a yellow wood"...do you think that will work for
+      the new dialog box?'
+  - Text: I only write hand-crafted artisan words on my trusty typewriter.
+  - Text: 'I''m sorry, please submit all your questions to me in writing. '

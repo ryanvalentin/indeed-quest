@@ -15,10 +15,11 @@ MonoBehaviour:
   Title: Product Manager
   Description: I'm a professional. There's nothing I don't know. I'm like a small
     CEO.
-  Icon: {fileID: 21300000, guid: a6f6e05cd89f3f243957fe990cb0f0ec, type: 3}
+  Icon: {fileID: 21300000, guid: b94e5617c1ffa45f79274aa84150bb12, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
   - Text: I'm very busy right now.
   - Text: Do you know anything about IQL? No? OK Leave me alone.
   - Text: I'm running late for standup.
+  - Text: 'Do I look like I have the time for a tea and chat? '

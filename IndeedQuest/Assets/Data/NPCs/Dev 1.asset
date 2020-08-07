@@ -18,6 +18,7 @@ MonoBehaviour:
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: I won't make it inbefore standup.
+  - Text: I won't make it in before standup.
   - Text: '*Types loudly*'
   - Text: Can we get logging on this?
+  - Text: Ok, but Linux really is better.

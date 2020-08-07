@@ -14,10 +14,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: QA
   Description: I break things.
-  Icon: {fileID: 21300000, guid: 0b33ba2167d1a49bcbe8a7df38d9205c, type: 3}
+  Icon: {fileID: 21300000, guid: fe82d14ba2847445180dc3fd263cb14a, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
   IdleDialogue:
-  - Text: Dev isn't in yet.
-  - Text: '*Goes straight for the edge case.*'
-  - Text: Can we test it in Prod?
+  - Text: Can't talk now, currently working on a release.
+  - Text: 'Bugs, bugs, so many bugs. '
+  - Text: But who QAs QA?
+  - Text: Can I get DFR support for this problem STAT?
