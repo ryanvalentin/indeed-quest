@@ -20,7 +20,7 @@ MonoBehaviour:
   - Show me the device!
   CompleteText: Yay!! I haven't been this happy since we stopped testing Microsoft
     phones!
-  RandomizeStartTime: 0
+  RandomizeStartTime: 1
   StartTime: 0
   Collectible: {fileID: 11400000, guid: 0b880c38e77e6644799b94fb3d8a6738, type: 2}
   IsComplete: 0

@@ -22,7 +22,6 @@ MonoBehaviour:
   PlayerMoveSpeed: 2
   RandomQuests:
   - {fileID: 11400000, guid: ffcc7f7a641b84e80ba0c8ba8daff52d, type: 2}
-  - {fileID: 11400000, guid: d3b02c7444c8c4368ad8ad92ee082570, type: 2}
   - {fileID: 11400000, guid: 9a55353dc8a9a4058bc33b6829267132, type: 2}
   - {fileID: 11400000, guid: c0fa6e3b702a34017944ea0f6d2c9f67, type: 2}
   - {fileID: 11400000, guid: a8e4fb8835c3c40bdae45aef9b0fd1a9, type: 2}

@@ -14,5 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: "Starbucks\u2122Reserve\u2122 Coffee"
   Description: "Non-basic coffee from Starbucks\u2122 Reserve\u2122"
-  Icon: {fileID: 21300000, guid: 75687074f936248eda416133f9ef845c, type: 3}
-  Id: 8829616a-3300-41a0-bab9-00ace351c976
+  Icon: {fileID: 21300000, guid: a58c4a7da5803ba40a9959e8c4f417cb, type: 3}
