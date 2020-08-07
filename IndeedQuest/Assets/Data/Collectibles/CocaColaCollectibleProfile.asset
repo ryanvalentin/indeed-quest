@@ -9,9 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 38354293dbdee384abc526742b782e91, type: 3}
-  m_Name: TopoChicoFridgeProfile 1
+  m_Script: {fileID: 11500000, guid: 9cf6c897f4e25ca4c8452ff20bc4e84f, type: 3}
+  m_Name: CocaColaCollectibleProfile
   m_EditorClassIdentifier: 
-  Title: Topo Chico
-  Description: The best drink
-  Icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  Title: Coca Cola
+  Description: A classic
+  Icon: {fileID: 21300000, guid: 9c8dc516c38074e8ebc32a5f6804cde3, type: 3}

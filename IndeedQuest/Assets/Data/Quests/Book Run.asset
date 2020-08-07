@@ -26,6 +26,6 @@ MonoBehaviour:
   CompleteText: This is a fortuitous occaision indeed! You've found the book I need!
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 0}
+  Collectible: {fileID: 11400000, guid: de5092d6091359d4eaab90e4521205ed, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

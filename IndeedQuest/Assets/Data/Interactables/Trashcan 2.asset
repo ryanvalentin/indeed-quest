@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Trashcan
   Description: Seems like there's an Indeed Badge in there! That's weird!
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: fc7f146fe2516864cbd81b4c2bbf39b2, type: 3}

@@ -14,13 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Fetch a La Croix
   InstructionsText: I'm thirsty! Get me a La Croix. Pampelmousse or nothing.
-  WrongItemText: What is this? Nobody likes {item.variant}.
+  WrongItemText: What is this? This better not be the Coconut flavor!!
   QuestIncompleteText:
   - '*Parched*'
   - I can't work if I'm thirsty.
   CompleteText: Ahhh. Just what I needed! Hopefully they get Spindrift soon.
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 11400000, guid: 87a08546cb6e54d2d91b5ab47899ecc9, type: 2}
+  Collectible: {fileID: 11400000, guid: 55217a6567efa4d28a3ee60ed3ebcee3, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

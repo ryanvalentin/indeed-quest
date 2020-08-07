@@ -70,7 +70,7 @@ public class NPCController : InteractableController
             {
                 GameController.Instance.OnPopupTrigger(Profile.Title, Quest.QuestIncompleteText[Random.Range(0, Quest.QuestIncompleteText.Length)], Profile.Icon, gameObject);
             }
-            else if (Inventory.Instance.CurrentItem.Id == Quest.Collectible.Id)
+            else if (Inventory.Instance.CurrentItem.Title == Quest.Collectible.Title)
             {
                 GameController.Instance.OnPopupTrigger(Profile.Title, Quest.CompleteText, Profile.Icon, gameObject);
                 PlayerQuestController.Instance.OnCompleteQuest();

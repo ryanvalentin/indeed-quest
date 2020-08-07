@@ -23,6 +23,6 @@ MonoBehaviour:
   CompleteText: Good good, thank you very much for this. This office shall be rewarded.
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 0}
+  Collectible: {fileID: 11400000, guid: 8ee66271394e72c44b954f636790e4e1, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

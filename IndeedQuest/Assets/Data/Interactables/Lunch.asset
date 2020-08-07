@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Lunch
   Description: It appears to be food of some sort!
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: a447e8b1a818fa342a995658c07f5e89, type: 3}

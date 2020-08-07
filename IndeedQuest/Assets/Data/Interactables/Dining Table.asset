@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Dining Table
   Description: Take a seat, and maybe have a bite to eat.
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 6cf548654558b474682b60c300fff1dc, type: 3}

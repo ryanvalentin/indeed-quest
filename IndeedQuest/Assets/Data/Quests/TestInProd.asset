@@ -17,7 +17,7 @@ MonoBehaviour:
     branch has already been cut, and regression has already been completed! I'm trying
     to get a hotfix out by EOD! AND I found a bug, but it turns out to be a "feature".
     Will you grab me another coffee?
-  WrongItemText: What is this? Nobody likes {item.variant}.
+  WrongItemText: Uhh, this is not what I was looking for?
   QuestIncompleteText:
   - "Excuse me, do you think I'm basic? I can tell this is regular Starbucks\u2122.
     I only drink Starbucks\u2122 Reserve\u2122!"
@@ -25,6 +25,6 @@ MonoBehaviour:
   CompleteText: Omg Jenkins... passed?
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 11400000, guid: 79fac36dd1587114aa29027c397a4b8a, type: 2}
+  Collectible: {fileID: 11400000, guid: 54b791613fd85c24286b37f8dd48a5c2, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

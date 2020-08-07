@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Pepper
   Description: The peppery half of a good pair of seasonings.
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 47fa83a6fc9f2dd4aab325cac0d788d0, type: 3}

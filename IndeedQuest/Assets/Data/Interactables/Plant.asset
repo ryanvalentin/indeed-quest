@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Plant
   Description: It's a plant. I've heard these are alive!
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 6ce20e950442cc3479357000a81af75f, type: 3}

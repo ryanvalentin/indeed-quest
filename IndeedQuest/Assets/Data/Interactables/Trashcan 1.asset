@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Trashcan
   Description: There's 1,000 LTIPS in here! Better leave them there.
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b6136c197e523d94783f9662e40da93a, type: 3}

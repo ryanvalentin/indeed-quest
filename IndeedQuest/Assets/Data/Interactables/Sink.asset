@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Sink
   Description: Dishes get washed here.
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: a946d52d24305ad45af1697646c5fc60, type: 3}

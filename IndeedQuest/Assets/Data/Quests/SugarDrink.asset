@@ -16,12 +16,12 @@ MonoBehaviour:
   InstructionsText: There is only spakling water in the fridge, but I want coke!
     I feel my productivity dropping without my favorite coke. Can you somehow get
     me one?
-  WrongItemText: What is this? Nobody likes {item.variant}.
+  WrongItemText: No, I need a coke. Sugarsugarsugarsugarsugarsugar.
   QuestIncompleteText:
   - This isn't coke...is it Pepsi? Anyway that's not quite it.
   CompleteText: Ah, the power of not-Pepsi is now coursing through my veins!
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 0}
+  Collectible: {fileID: 11400000, guid: 036b316ddb205fd4b9f181e27d642062, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

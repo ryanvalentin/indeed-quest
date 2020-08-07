@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9cf6c897f4e25ca4c8452ff20bc4e84f, type: 3}
+  m_Name: DoritosCollectibleProfile
+  m_EditorClassIdentifier: 
+  Title: Doritos
+  Description: What makes this ranch "cooler"?
+  Icon: {fileID: 21300000, guid: 0dc6695feb5344e8f824d399a511dc60, type: 3}
+  Id: 6de56030-9b3c-449d-97b7-af84b8feaf94

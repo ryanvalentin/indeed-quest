@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Indeed Logo Art
   Description: What a nice looking logo.
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 54c220ddbe4c9734396677e2c081645d, type: 3}

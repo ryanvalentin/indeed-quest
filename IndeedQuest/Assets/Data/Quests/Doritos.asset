@@ -22,6 +22,6 @@ MonoBehaviour:
   CompleteText: Woohoo!! *crunch munch crunch munch crunch*
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 0}
+  Collectible: {fileID: 11400000, guid: 661e213e80439284e84946764a95c357, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

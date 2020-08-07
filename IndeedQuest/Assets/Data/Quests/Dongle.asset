@@ -22,6 +22,6 @@ MonoBehaviour:
   CompleteText: Please hurry, before my next meeting.
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 0}
+  Collectible: {fileID: 11400000, guid: bfcc68fcbe2f8934c842de2a242ae6e6, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

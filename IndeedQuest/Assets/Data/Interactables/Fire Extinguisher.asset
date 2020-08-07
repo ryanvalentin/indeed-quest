@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Fire Extinguisher
   Description: This is for when the building burns down! I hope I get to use it soon!
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 70a7b4e3b6f6c433d9196587cd02af50, type: 3}

@@ -25,6 +25,6 @@ MonoBehaviour:
     session! Thank you so much!
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 0}
+  Collectible: {fileID: 11400000, guid: 2d6a704328071834e95e124772af2f3d, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

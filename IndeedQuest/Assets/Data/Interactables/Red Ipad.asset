@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Red iPad
   Description: Looks like a meeting is in progress! Better not disturb them!
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: cd7ba0e1f77d95949838505ec7c85678, type: 3}

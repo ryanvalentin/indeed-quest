@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Bookshelf
   Description: Look at all those books!
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: f2b3132f142c4449084a61f063631b6c, type: 3}

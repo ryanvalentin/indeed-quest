@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Chair
   Description: It's a plant. I've heard these are alive.
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 309f7093bf11063479246c48df318bc2, type: 3}

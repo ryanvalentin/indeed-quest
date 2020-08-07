@@ -23,6 +23,6 @@ MonoBehaviour:
   CompleteText: Huh. Turns out, I only wanted 3 monitors after all!
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 11400000, guid: 79fac36dd1587114aa29027c397a4b8a, type: 2}
+  Collectible: {fileID: 11400000, guid: 35cb4bc729a69094eb20383b5d4dda94, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}

@@ -15,4 +15,4 @@ MonoBehaviour:
   Title: Window
   Description: A nice peak at the world outside, with some of tje jobseekers looking
     back at us.
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: a8960ff9a2519412bb57ac3381470f9f, type: 3}

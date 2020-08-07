@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Desk full of LaCroix
   Description: Whoever sits here really likes La Croix!
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: b82cb12b2666f446e98d443f24269eda, type: 3}

@@ -14,4 +14,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Title: Wall TV
   Description: Look at what today's metrics are showing us.
-  Icon: {fileID: 0}
+  Icon: {fileID: 21300000, guid: 03d6658ca2129bb44a36d3813270a492, type: 3}

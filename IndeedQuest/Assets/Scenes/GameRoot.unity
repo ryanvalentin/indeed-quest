@@ -3274,7 +3274,7 @@ MonoBehaviour:
       m_Calls: []
   m_Sprite: {fileID: 21300000, guid: 16129063b7c56ef428681b6f520fc8cb, type: 3}
   m_Type: 0
-  m_PreserveAspect: 0
+  m_PreserveAspect: 1
   m_FillCenter: 1
   m_FillMethod: 4
   m_FillAmount: 1
@@ -4143,6 +4143,7 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   MusicSource: {fileID: 493795119}
   EffectsSource: {fileID: 2020775259}
+  _timeSinceStart: 0
 --- !u!114 &1550169242
 MonoBehaviour:
   m_ObjectHideFlags: 0
