@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa6420097d4e75458a2d3acfcb73b8b, type: 3}
+  m_Name: MorePOWER 1
+  m_EditorClassIdentifier: 
+  Name: More Power
+  InstructionsText: I can't believe this! I must have left my power cable back at
+    the Austin office! Can you fetch one for me?
+  WrongItemText: You DARE bring me this? This is OUTRAGEOUS! I'll DIVEST this WORTHLESS
+    office along with YOU! MARK MY WORDS!
+  QuestIncompleteText:
+  - I need that power cable! The clock is ticking!
+  - I find your lack of power cable...disturbing.
+  CompleteText: Good good, thank you very much for this. This office shall be rewarded.
+  RandomizeStartTime: 0
+  StartTime: 0
+  Collectible: {fileID: 0}
+  IsComplete: 0
+  Owner: {fileID: 0}

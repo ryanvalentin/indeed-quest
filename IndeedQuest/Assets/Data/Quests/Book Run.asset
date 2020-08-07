@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa6420097d4e75458a2d3acfcb73b8b, type: 3}
+  m_Name: Book Run
+  m_EditorClassIdentifier: 
+  Name: Book Run
+  InstructionsText: I need the complete works of Shakespeare in order to write the
+    copy for the new error dialog! I'm sure it's on one of the bookshelves in this
+    office somewhere!
+  WrongItemText: Methinks something is amiss! This is not what I needed! I'm ruined!
+  QuestIncompleteText:
+  - I just can't think of what to say! If only I had that book I requested! Alas,
+    woe is me!
+  - 'To be or not to be.
+
+    This do not be.'
+  CompleteText: This is a fortuitous occaision indeed! You've found the book I need!
+  RandomizeStartTime: 0
+  StartTime: 0
+  Collectible: {fileID: 0}
+  IsComplete: 0
+  Owner: {fileID: 0}
