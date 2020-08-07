@@ -13,6 +13,5 @@ MonoBehaviour:
   m_Name: SpareMonitorCollectibleProfile
   m_EditorClassIdentifier: 
   Title: A Spare Monitor
-  Description: I wonder if it works?
+  Description: Wow a rare unused 5K monitor. Don't let IT see.
   Icon: {fileID: 21300000, guid: 6c76726e62410d54ea202527fb080749, type: 3}
-  Id: 8829616a-3300-41a0-bab9-00ace351c973

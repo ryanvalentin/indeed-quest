@@ -4205,7 +4205,7 @@ MonoBehaviour:
   WorldSpaceCanvas: {fileID: 407119825}
   Profile: {fileID: 11400000, guid: a2b1de936adcd4d8bbaf582363140d80, type: 2}
   InteractImage: {fileID: 1277973782}
-  Quest: {fileID: 0}
+  Quest: {fileID: 11400000, guid: ba15fac2c49924e1081e65da4c7ac565, type: 2}
   ReportingIntervalMinimum: 2
   ReportingIntervalMaxiumum: 10
 --- !u!136 &968170376
