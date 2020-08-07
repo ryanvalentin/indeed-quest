@@ -12,7 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf6c897f4e25ca4c8452ff20bc4e84f, type: 3}
   m_Name: IndeedBadgeCollectibleProfile
   m_EditorClassIdentifier: 
-  Title: Someone's Indeed Badge
+  Title: Indeed Badge
   Description: I don't even recognize this person?
   Icon: {fileID: 21300000, guid: 03ded2cdc3d8048d391fd3b3657eccc7, type: 3}
-  Id: 8d4d1f8d-a870-4b2e-9cd2-73671fc9a667
