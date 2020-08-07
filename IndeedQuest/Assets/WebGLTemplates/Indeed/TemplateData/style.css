@@ -1,0 +1,80 @@
+@import url("https://fonts.googleapis.com/css2?family=Russo+One&display=swap");
+.webgl-content * {
+  border: 0;
+  margin: 0;
+  padding: 0;
+}
+.webgl-content {
+  position: absolute;
+  top: 16px;
+  left: 50%;
+  -webkit-transform: translate(-50%, 0);
+  transform: translate(-50%, -0);
+}
+.webgl-content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+
+.webgl-content .logo,
+.progress {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+}
+.webgl-content .logo {
+  background: url("progressLogo.Light.png") no-repeat center / contain;
+  width: 154px;
+  height: 130px;
+}
+.webgl-content .footer .title {
+  margin-right: 10px;
+  float: right;
+}
+.webgl-content .footer .fullscreen {
+  background-image: url("fullscreen.png");
+  width: 38px;
+  height: 38px;
+  float: right;
+}
+body {
+  background-color: black;
+}
+h1 {
+  color: white;
+  margin: 0 auto;
+  text-align: center;
+  font-family: "Russo One", sans-serif;
+  font-size: 64px;
+}
+p {
+  color: white;
+  margin: 0 auto;
+  font-family: "Russo One", sans-serif;
+  font-size: 18px;
+}
+
+a {
+  color: white;
+}
+
+.instructions {
+  font-family: "Russo One", sans-serif;
+  background-color: darkblue;
+  padding: 20px;
+  margin-top: 50px;
+  margin-bottom: 100px;
+  color: white;
+}
+
+.controllersP {
+  margin-top: 20px;
+}
+.controllers {
+  margin-left: 20px;
+}
