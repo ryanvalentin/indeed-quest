@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0d1bb319a217b764c97344e051807a0d, type: 3}
   m_Name: Writer 2
   m_EditorClassIdentifier: 
-  Title: Caterer
-  Description: I feed people.
+  Title: Writer
+  Description: I scribe things.
   Icon: {fileID: 21300000, guid: a3d94d7688e3943d5b67194df045c9b1, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10

@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Writer 1
   m_EditorClassIdentifier: 
   Title: Writer
-  Description: I write things.
+  Description: I scribe things.
   Icon: {fileID: 21300000, guid: b217fadd8f30944458fc50cc59c308e5, type: 3}
   MinJobsPerMinute: 0
   MaxJobsPerMinute: 10
