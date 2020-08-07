@@ -19,7 +19,7 @@ MonoBehaviour:
     different and also works.
   QuestIncompleteText:
   - I need that dongle!!!
-  CompleteText: Please hurry, before my next meeting.
+  CompleteText: Thank you! Now I'm late to my next meeting.
   RandomizeStartTime: 0
   StartTime: 0
   Collectible: {fileID: 11400000, guid: bfcc68fcbe2f8934c842de2a242ae6e6, type: 2}
