@@ -14,12 +14,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Name: Missing Meat
   InstructionsText: Enjoy the meat! nom nom nom. Wait... where did all the meat go?
-  WrongItemText: '{item.variant}? Just no.'
+  WrongItemText: '{item.variant} doesn''t seem nutritious, or lunch, or even meat.'
   QuestIncompleteText:
-  - I'm going to get so many complaints without that meat.
-  CompleteText: Ahh lunch is saved!
+  - '*Rummages through cupboards, finds wine glasses and what looks like someone''s
+    lost Ark of the Covenant but no box of meat*'
+  CompleteText: Yes! We can now have lunch and an afternoon will follow!
   RandomizeStartTime: 0
   StartTime: 0
-  Collectible: {fileID: 11400000, guid: 79fac36dd1587114aa29027c397a4b8a, type: 2}
+  Collectible: {fileID: 0}
   IsComplete: 0
   Owner: {fileID: 0}
