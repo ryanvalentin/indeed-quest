@@ -155,6 +155,9 @@ public class GameController : MonoBehaviour
         Instance = this;
 
         StartCoroutine(RunLoadStartRoutine());
+
+        // Clone skybox material so we don't leave permanent changes to the file
+        RenderSettings.skybox = Instantiate(RenderSettings.skybox);
     }
 
     private void LateUpdate()
