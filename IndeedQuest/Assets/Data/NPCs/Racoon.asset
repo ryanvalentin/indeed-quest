@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d1bb319a217b764c97344e051807a0d, type: 3}
+  m_Name: Racoon
+  m_EditorClassIdentifier: 
+  Title: Raccoon
+  Description: Do you even work here?
+  Icon: {fileID: 21300000, guid: 371488de39d394f71bdb7d01c6e08f13, type: 3}
+  MinJobsPerMinute: 0
+  MaxJobsPerMinute: 2
+  IdleDialogue:
+  - Text: I definitely work here.
+  - Text: I'm not just here because I want to sneak in and steal snacks.
+  - Text: Do you happen to have any openings in QA? I'm really good at searching
+      for vulerabilities.
+  - Text: I, uh, left my badge at home. Yeah
