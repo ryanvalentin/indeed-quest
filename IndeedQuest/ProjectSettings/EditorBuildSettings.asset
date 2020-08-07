@@ -9,21 +9,24 @@ EditorBuildSettings:
     path: Assets/Scenes/MainMenuScene.unity
     guid: 2080b7cfec9fd4a45862583dbc9f0e91
   - enabled: 1
-    path: Assets/Scenes/ElevatorRoomScene.unity
-    guid: 748456e08f077d747b3ef95d2c0a2c51
+    path: Assets/Scenes/Rooms/BalconyRoom.unity
+    guid: 124f3afe155326c4496580cecff9acf9
   - enabled: 1
-    path: Assets/Scenes/LunchRoomScene.unity
-    guid: 075207cc9e8d75947b25ee463b6b8691
+    path: Assets/Scenes/Rooms/LunchRoom.unity
+    guid: 6a75cb8539521ba4684d5b3a11bebd37
   - enabled: 1
-    path: Assets/Scenes/CommonRoomScene.unity
-    guid: 8d37b026eb2636041aeafcbc54480659
+    path: Assets/Scenes/Rooms/DeskRoomSouth.unity
+    guid: 1fd014c37e5de1f44bf0253d7922175b
   - enabled: 1
-    path: Assets/Scenes/DeskRoomNorthScene.unity
-    guid: 9f0daec46d2f4264faa4c0ced28b0d0d
+    path: Assets/Scenes/Rooms/ElevatorRoom.unity
+    guid: c4a95b21dc80a714eafc56fb9cfc3a9c
   - enabled: 1
-    path: Assets/Scenes/DeskRoomSouthScene.unity
-    guid: aefe7d7ede548b84ea563ef2a91b2b07
+    path: Assets/Scenes/Rooms/DeskRoomNorth.unity
+    guid: d26917b78d1e3c24390ffb5d9ef2ad33
   - enabled: 1
-    path: Assets/Scenes/GameSceneContainer.unity
-    guid: a1d8041e3cece6d47952a1b6e43337ec
+    path: Assets/Scenes/Rooms/ConferenceRoom.unity
+    guid: d2f6cddc975186f4fad4d172fa10f881
+  - enabled: 1
+    path: Assets/Scenes/GameRoot.unity
+    guid: 5b8b50da6e5dbd4498856adc48f7bb18
   m_configObjects: {}

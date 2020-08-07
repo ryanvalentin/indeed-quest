@@ -833,8 +833,8 @@ MonoBehaviour:
   Mixer: {fileID: 24100000, guid: bb4a05b38807c864ebf747964187d8b5, type: 2}
   FadeSeconds: 1
   GameStartScene:
-    sceneAsset: {fileID: 102900000, guid: a1d8041e3cece6d47952a1b6e43337ec, type: 3}
-    scenePath: Assets/Scenes/GameSceneContainer.unity
+    sceneAsset: {fileID: 102900000, guid: 5b8b50da6e5dbd4498856adc48f7bb18, type: 3}
+    scenePath: Assets/Scenes/GameRoot.unity
 --- !u!1001 &1514022457
 PrefabInstance:
   m_ObjectHideFlags: 0

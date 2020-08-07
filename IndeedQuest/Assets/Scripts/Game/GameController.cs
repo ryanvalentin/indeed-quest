@@ -36,8 +36,13 @@ public class GameController : MonoBehaviour
 
     public GameObject PauseMenu;
 
+    public Gradient SkyGradientOverTime;
+
     //
     // Private variables
+
+    private const float START_TIME = 32400f; // 9:00 in seconds
+    private const float END_TIME = START_TIME + 28800f; // +8 hours in seconds
 
     private Scene _currentRoomScene;
 
@@ -152,14 +157,26 @@ public class GameController : MonoBehaviour
         StartCoroutine(RunLoadStartRoutine());
     }
 
-    private void Update()
-    {
-    }
-
     private void LateUpdate()
     {
         UpdateScore();
         UpdateGameClock();
+        UpdateSkybox();
+    }
+
+    private void UpdateSkybox()
+    {
+        // Change color of the skybox over time.
+        float normalizedTime = Normalize(_gameTime, START_TIME, END_TIME);
+        Color newColor = SkyGradientOverTime.Evaluate(normalizedTime);
+        RenderSettings.skybox.SetColor("_Tint", newColor);
+    }
+
+    private float Normalize(float value, float min, float max)
+    {
+	    float normalized = (value - min) / (max - min);
+
+        return normalized;
     }
 
     /// <summary>
@@ -183,25 +200,24 @@ public class GameController : MonoBehaviour
         ScoreText.text = $"{CurrentScore:N0}";
     }
 
-    private void UpdateGameClock()
-    {
-        const float timeBase = 32400f; // 9:00 in seconds
-        const float eightHours = timeBase + 28800f; // +8 hours in seconds
+    private float _gameTime;
 
-        float gameTime = timeBase;
+    private void UpdateGameClock()
+    {        
+        _gameTime = START_TIME;
         if (GameHasStarted)
         {
             // Only start ticking time when the player has started the game.
 
             TimeSinceStart += Time.deltaTime;
 
-            gameTime += (TimeSinceStart * Profile.TimeScale);
+            _gameTime += (TimeSinceStart * Profile.TimeScale);
 
-            if (gameTime > eightHours)
+            if (_gameTime > END_TIME)
                 EndGame();
         }
 
-        TimeSpan ts = TimeSpan.FromSeconds(gameTime);
+        TimeSpan ts = TimeSpan.FromSeconds(_gameTime);
         TimeText.text = $"{new DateTime(2020, 01, 01, ts.Hours, ts.Minutes, ts.Seconds):hh:mm tt}";
     }
 

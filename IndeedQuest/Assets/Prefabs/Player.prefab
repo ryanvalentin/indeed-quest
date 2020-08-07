@@ -9,11 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3839080659770028555}
-  - component: {fileID: 8844580927581609290}
   - component: {fileID: 4831116952451581779}
   - component: {fileID: 3187143770443801102}
   - component: {fileID: 4096693796575304930}
-  - component: {fileID: 4103668181388828736}
   - component: {fileID: 2923056214321468321}
   m_Layer: 0
   m_Name: Player
@@ -37,21 +35,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8844580927581609290
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3839080659770028554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6be3d3a0b4110954ba505ecf17b7d8ef, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentItem: {fileID: 0}
-  InventoryItemCanvas: {fileID: 0}
-  InventoryIconImage: {fileID: 0}
 --- !u!54 &4831116952451581779
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -96,19 +79,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 2
   playeranime: {fileID: 2923056214321468321}
---- !u!114 &4103668181388828736
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3839080659770028554}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 31386d570671319499abc17b1ad045f6, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _currentQuest: {fileID: 0}
 --- !u!95 &2923056214321468321
 Animator:
   serializedVersion: 3
@@ -198,7 +168,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: 21300000, guid: 8823b324966926346a21f3d240692a32, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ed6fb9c992e6a406193c83943c738b7e, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
