@@ -21,12 +21,6 @@ public class MainMenuController : MonoBehaviour
         StartCoroutine(RunFadeScreenRoutine(FadeSeconds, 0f, 0f, startGame: false));
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartGame()
     {
         FadeCanvas.gameObject.SetActive(true);

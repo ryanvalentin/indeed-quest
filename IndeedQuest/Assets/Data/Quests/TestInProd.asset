@@ -23,8 +23,8 @@ MonoBehaviour:
     I only drink Starbucks\u2122 Reserve\u2122!"
   - No coffee, no release.
   CompleteText: Omg Jenkins... passed?
-  RandomizeStartTime: 0
-  StartTime: 0
+  RandomizeStartTime: 1
+  StartTime: 4616
   Collectible: {fileID: 11400000, guid: 54b791613fd85c24286b37f8dd48a5c2, type: 2}
   IsComplete: 0
   Owner: {fileID: 0}
