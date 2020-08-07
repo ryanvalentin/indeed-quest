@@ -25,7 +25,7 @@ MonoBehaviour:
   - {fileID: 11400000, guid: d3b02c7444c8c4368ad8ad92ee082570, type: 2}
   - {fileID: 11400000, guid: 9a55353dc8a9a4058bc33b6829267132, type: 2}
   - {fileID: 11400000, guid: c0fa6e3b702a34017944ea0f6d2c9f67, type: 2}
-  - {fileID: 0}
+  - {fileID: 11400000, guid: a8e4fb8835c3c40bdae45aef9b0fd1a9, type: 2}
   NPCIdleSprite: {fileID: 21300000, guid: 8b14b2ed30c9d7c468592d9b31bca655, type: 3}
   NPCHasQuestSprite: {fileID: 21300000, guid: dc2653e00271ffd499446e68976ff92d, type: 3}
   NPCAwaitingQuestSprite: {fileID: 21300000, guid: e6752e4fc4f19ee488a40f9f867ff8b9,
