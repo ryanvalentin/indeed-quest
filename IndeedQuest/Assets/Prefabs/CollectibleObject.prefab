@@ -216,6 +216,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   WorldSpaceCanvas: {fileID: 6964861798917705118}
   Profile: {fileID: 0}
+  InteractImage: {fileID: 2526200236819686233}
 --- !u!1 &6964861798917705114
 GameObject:
   m_ObjectHideFlags: 0

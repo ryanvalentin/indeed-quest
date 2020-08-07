@@ -12,7 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9cf6c897f4e25ca4c8452ff20bc4e84f, type: 3}
   m_Name: ShakespeareBookCollectibleProfile
   m_EditorClassIdentifier: 
-  Title: The Complete Works of Shakespeare
-  Description: To be, or not to be, that is the question. Wait, what am I, then?
+  Title: Shakespeare
+  Description: 'What''s in this book, let''s see, "To be, or not to be, that is the
+    question."
+
+
+    Wait, what am I, then?'
   Icon: {fileID: 21300000, guid: 836f0f6b17d974c79a9e0771e1d71d59, type: 3}
-  Id: 36edf789-9466-4f13-922d-f99f3051ed58

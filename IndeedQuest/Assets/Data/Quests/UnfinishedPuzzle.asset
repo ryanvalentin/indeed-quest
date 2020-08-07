@@ -20,7 +20,7 @@ MonoBehaviour:
   - So close, yet so far...
   - I worked really hard on this puzzle.
   CompleteText: That's it! Thank you so much!
-  RandomizeStartTime: 0
+  RandomizeStartTime: 1
   StartTime: 0
   Collectible: {fileID: 11400000, guid: 86a8e9e789b363e4e88753f43cc79fd5, type: 2}
   IsComplete: 0
