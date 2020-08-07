@@ -1,0 +1,30 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa6420097d4e75458a2d3acfcb73b8b, type: 3}
+  m_Name: MarkerInAHaystack
+  m_EditorClassIdentifier: 
+  Name: Marker in a Haystack
+  InstructionsText: "I need to host a whiteboarding session soon! If only there were
+    some way to write on whiteboards, but i guess it\u2019s just not possible. If
+    only there were some way to mark them. Some kind of marker. If only that existed. "
+  WrongItemText: What? I can't mark a whiteboard with this! My whiteboarding session
+    is ruined! I can't do any work at all ever again!
+  QuestIncompleteText:
+  - Where is the marker? No new designs can be done without that marker!
+  - Please help find the marker, so this whiteboard can cease to be a blank void.
+  CompleteText: Amazing! With this device I can mark the whiteboard and run my whiteboarding
+    session! Thank you so much!
+  RandomizeStartTime: 0
+  StartTime: 0
+  Collectible: {fileID: 0}
+  IsComplete: 0
+  Owner: {fileID: 0}

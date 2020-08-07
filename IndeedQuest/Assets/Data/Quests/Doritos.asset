@@ -1,0 +1,31 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4aa6420097d4e75458a2d3acfcb73b8b, type: 3}
+  m_Name: BadgeMeIn
+  m_EditorClassIdentifier: 
+  Name: BadgeMeIn
+  InstructionsText: Psst....hi there. I'm not allowed in the office, but I really
+    want snacks. Can you find me an Indeed Badge? Surely there's one lying around
+    the office somewhere.
+  WrongItemText: 'Oh...this is...okay....I guess........*sigh* '
+  QuestIncompleteText:
+  - If only I could get into the office! Keep looking! I've heard trash cans are
+    the greatest place to find anything!
+  - I guess I can eat this instead of the deliicious snacks...*sniffs* *pulls out
+    violin and plays sad waltz*
+  CompleteText: At last! With this, I'll be able to eat all the snacks I want! Thank
+    you so much!
+  RandomizeStartTime: 0
+  StartTime: 0
+  Collectible: {fileID: 0}
+  IsComplete: 0
+  Owner: {fileID: 0}
