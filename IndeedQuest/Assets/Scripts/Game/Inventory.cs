@@ -55,8 +55,8 @@ public class Inventory : MonoBehaviour
 
     public void OnItemTaken()
     {
-        // Item has been taken, so destroy the original
-        Destroy(_originalController.gameObject);
+        // Item has been taken, so disable the original
+        _originalController.gameObject.SetActive(false);
         CurrentItem = null;
         _originalController = null;
     }
